@@ -1,0 +1,11 @@
+.SkillNode {
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+}
+
+.SkillNode--selected {
+  background-color: #f44336;
+}

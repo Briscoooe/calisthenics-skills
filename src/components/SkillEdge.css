@@ -1,0 +1,9 @@
+.SkillEdge {
+  border: 1px solid white;
+  height: 40px;
+  width: 4px;
+}
+
+.SkillEdge--active {
+  background-color: white;
+}

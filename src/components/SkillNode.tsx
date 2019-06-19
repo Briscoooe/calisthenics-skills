@@ -1,10 +1,13 @@
 import React from "react";
+import classnames from "classnames";
 import SkillContext from "../context/SkillContext";
 import "./SkillNode.css";
+import { LOCKED_STATE, UNLOCKED_STATE, SELECTED_STATE } from "./constants";
 
 interface Props {
   id: string;
   previousNodeIds: string[];
+  icon: string;
 }
 
 interface State {
@@ -33,15 +36,15 @@ class SkillNode extends React.Component<Props, State> {
   handleClick = () => {
     const { currentState } = this.state;
 
-    if (currentState === "locked") {
+    if (currentState === LOCKED_STATE) {
       return null;
     }
 
-    if (currentState === "unlocked") {
-      return this.updateState("selected");
+    if (currentState === UNLOCKED_STATE) {
+      return this.updateState(SELECTED_STATE);
     }
 
-    return this.updateState("unlocked");
+    return this.updateState(UNLOCKED_STATE);
   };
 
   updateState = (state: string) => {
@@ -56,46 +59,56 @@ class SkillNode extends React.Component<Props, State> {
     const nodeDependencies = this.props.previousNodeIds.length;
 
     if (nodeDependencies > 0) {
-      return this.updateState("locked");
+      return this.updateState(LOCKED_STATE);
     }
 
-    return this.updateState("unlocked");
+    return this.updateState(UNLOCKED_STATE);
   }
 
   componentDidUpdate() {
     const { currentState } = this.state;
 
     const prevNodesAreSelected = this.props.previousNodeIds.every(prevId => {
-      if (this.context.skills[prevId] !== "selected") {
+      if (this.context.skills[prevId] !== SELECTED_STATE) {
         return false;
       }
 
       return true;
     });
 
-    if (currentState === "unlocked" && !prevNodesAreSelected) {
-      return this.updateState("locked");
+    if (currentState === UNLOCKED_STATE && !prevNodesAreSelected) {
+      return this.updateState(LOCKED_STATE);
     }
 
     if (!prevNodesAreSelected) {
       return null;
     }
 
-    if (currentState === "locked" && prevNodesAreSelected) {
-      return this.updateState("unlocked");
+    if (currentState === LOCKED_STATE && prevNodesAreSelected) {
+      return this.updateState(UNLOCKED_STATE);
     }
   }
 
   render() {
     const { currentState } = this.state;
-    const isSelected = currentState === "selected";
+    const { icon } = this.props;
 
     return (
-      <div
-        onClick={this.handleClick}
-        data-testid={this.props.id}
-        className={`SkillNode ${isSelected ? "SkillNode--selected" : ""}`}
-      />
+      <div className={classnames("SkillNode__overlay", {
+        "SkillNode__overlay--selected": currentState === SELECTED_STATE,
+      })}>
+        <div
+          onClick={this.handleClick}
+          data-testid={this.props.id}
+          className={classnames("SkillNode", {
+            "SkillNode--selected": currentState === SELECTED_STATE,
+            "SkillNode--unlocked": currentState === UNLOCKED_STATE,
+            "SkillNode--locked": currentState === LOCKED_STATE
+          })}
+        >
+          <img alt="node-icon" src={icon} className="SkillNode__icon" />
+        </div>
+      </div>
     );
   }
 }

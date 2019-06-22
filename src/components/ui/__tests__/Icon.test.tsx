@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Icon, { Props } from "../Icon";
-import { BarbellIcon } from "../../icons";
+import { BarbellIcon } from "../../../icons";
 
 function renderComponent(props: Props) {
   return render(

@@ -3,13 +3,15 @@ import classnames from "classnames";
 import SkillContext from "../context/SkillContext";
 import { LOCKED_STATE, UNLOCKED_STATE, SELECTED_STATE } from "./constants";
 import Tooltip from "./Tooltip";
-import Icon from "./Icon";
+import Icon from "./ui/Icon";
 import "./SkillNode.css";
 
 interface Props {
   id: string;
   previousNodeIds: string[];
   icon: string;
+  tooltipTitle?: string;
+  tooltipDescription?: string;
 }
 
 interface State {
@@ -95,7 +97,7 @@ class SkillNode extends React.Component<Props, State> {
 
   render() {
     const { currentState, showTooltip } = this.state;
-    const { icon } = this.props;
+    const { icon, tooltipTitle, tooltipDescription } = this.props;
 
     return (
       <div
@@ -121,7 +123,7 @@ class SkillNode extends React.Component<Props, State> {
             <Icon title="node-icon" src={icon} containerWidth={250} />
           </div>
         </div>
-        {showTooltip && <Tooltip />}
+        {showTooltip && <Tooltip tooltipTitle={tooltipTitle} tooltipDescription={tooltipDescription} />}
       </div>
     );
   }

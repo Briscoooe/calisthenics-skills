@@ -49,9 +49,7 @@ function renderComponent(nextNodeIds: string[], startingState: string[]) {
 }
 
 describe("SkillEdge", () => {
-  afterEach(() => {
-    cleanup();
-  });
+  afterEach(cleanup);
 
   it("should be inactive if the next node is unlocked", async () => {
     const startingIds = ["123"];

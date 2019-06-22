@@ -13,9 +13,7 @@ function renderComponent() {
 }
 
 describe("SkillTree", () => {
-  afterEach(() => {
-    cleanup();
-  });
+  afterEach(cleanup);
 
   it("renders the correct number of SkillNodes", () => {
     const { queryAllByTestId } = renderComponent();

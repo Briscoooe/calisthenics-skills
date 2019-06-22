@@ -1,10 +1,9 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { SkillProvider } from "./context/SkillContext";
 import SkillTree from "./components/SkillTree";
 import { MapIcon } from "./icons";
-import Icon from "./components/Icon";
+import Icon from "./components/ui/Icon";
 
 const App: React.FC = () => {
   return (

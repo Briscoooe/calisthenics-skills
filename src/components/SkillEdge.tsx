@@ -18,7 +18,7 @@ function SkillEdge({ nextNodeIds }: Props) {
       className={classnames("SkillEdge", {
         "SkillEdge--active": isActive
       })}
-    />
+  />
   );
 }
 

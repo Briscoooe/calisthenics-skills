@@ -1,9 +1,10 @@
 import React from "react";
 import classnames from "classnames";
 import SkillContext from "../context/SkillContext";
-import "./SkillNode.css";
 import { LOCKED_STATE, UNLOCKED_STATE, SELECTED_STATE } from "./constants";
 import Tooltip from "./Tooltip";
+import Icon from "./Icon";
+import "./SkillNode.css";
 
 interface Props {
   id: string;
@@ -101,6 +102,7 @@ class SkillNode extends React.Component<Props, State> {
         onMouseEnter={() => this.setState({ showTooltip: true })}
         onMouseLeave={() => this.setState({ showTooltip: false })}
         style={{ position: "relative" }}
+        data-testid="skill-node"
       >
         <div
           className={classnames("SkillNode__overlay", {
@@ -116,7 +118,7 @@ class SkillNode extends React.Component<Props, State> {
               "SkillNode--locked": currentState === LOCKED_STATE
             })}
           >
-            <img alt="node-icon" src={icon} className="SkillNode__icon" />
+            <Icon title="node-icon" src={icon} containerWidth={250} />
           </div>
         </div>
         {showTooltip && <Tooltip />}

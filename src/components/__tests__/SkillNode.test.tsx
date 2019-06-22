@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import SkillNode from "./SkillNode";
-import { BarbellIcon } from "../icons";
+import SkillNode from "../SkillNode";
+import { BarbellIcon } from "../../icons";
 
 function renderComponent() {
   return render(

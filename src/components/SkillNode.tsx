@@ -3,6 +3,7 @@ import classnames from "classnames";
 import SkillContext from "../context/SkillContext";
 import "./SkillNode.css";
 import { LOCKED_STATE, UNLOCKED_STATE, SELECTED_STATE } from "./constants";
+import Tooltip from "./Tooltip";
 
 interface Props {
   id: string;
@@ -12,6 +13,7 @@ interface Props {
 
 interface State {
   currentState: string;
+  showTooltip: boolean;
 }
 
 interface Context {
@@ -29,7 +31,8 @@ class SkillNode extends React.Component<Props, State> {
     const skillState = context.skills[props.id];
 
     this.state = {
-      currentState: skillState
+      currentState: skillState,
+      showTooltip: false
     };
   }
 
@@ -90,24 +93,33 @@ class SkillNode extends React.Component<Props, State> {
   }
 
   render() {
-    const { currentState } = this.state;
+    const { currentState, showTooltip } = this.state;
     const { icon } = this.props;
 
     return (
-      <div className={classnames("SkillNode__overlay", {
-        "SkillNode__overlay--selected": currentState === SELECTED_STATE,
-      })}>
+      <div
+        onMouseEnter={() => this.setState({ showTooltip: true })}
+        onMouseLeave={() => this.setState({ showTooltip: false })}
+        style={{ position: "relative" }}
+      >
         <div
-          onClick={this.handleClick}
-          data-testid={this.props.id}
-          className={classnames("SkillNode", {
-            "SkillNode--selected": currentState === SELECTED_STATE,
-            "SkillNode--unlocked": currentState === UNLOCKED_STATE,
-            "SkillNode--locked": currentState === LOCKED_STATE
+          className={classnames("SkillNode__overlay", {
+            "SkillNode__overlay--selected": currentState === SELECTED_STATE
           })}
         >
-          <img alt="node-icon" src={icon} className="SkillNode__icon" />
+          <div
+            onClick={this.handleClick}
+            data-testid={this.props.id}
+            className={classnames("SkillNode", {
+              "SkillNode--selected": currentState === SELECTED_STATE,
+              "SkillNode--unlocked": currentState === UNLOCKED_STATE,
+              "SkillNode--locked": currentState === LOCKED_STATE
+            })}
+          >
+            <img alt="node-icon" src={icon} className="SkillNode__icon" />
+          </div>
         </div>
+        {showTooltip && <Tooltip />}
       </div>
     );
   }

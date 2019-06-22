@@ -1,0 +1,20 @@
+.Tooltip__hover-container {
+  padding: 0 8px;
+  position: absolute;
+  left: 84px;
+  top: 0;
+}
+
+.Tooltip {
+  border: 2px solid;
+  border-image-source: linear-gradient(
+    to right,
+    #d0e6a5 0%,
+    #86e3ce 50%,
+    #ccabd8 100%
+  );
+  border-image-slice: 1;
+  border-radius: 4px;
+  text-align: left;
+  width: 320px;
+}

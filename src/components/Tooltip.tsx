@@ -14,6 +14,11 @@ interface State {
 }
 
 class Tooltip extends React.Component<Props, State> {
+  static defaultProps: Props = {
+    tooltipTitle: "Title",
+    tooltipDescription: "Some information"
+  };
+
   private tooltipRef: React.RefObject<HTMLDivElement>;
 
   constructor(props: Props) {
@@ -37,9 +42,6 @@ class Tooltip extends React.Component<Props, State> {
       elHeight
     );
 
-    console.log(isElementInWindow);
-    
-
     this.setState({
       isElementInWindow
     });
@@ -52,6 +54,7 @@ class Tooltip extends React.Component<Props, State> {
     return (
       <div
         ref={this.tooltipRef}
+        data-testid="tooltip-container"
         className={classnames("Tooltip__hover-container", {
           "Tooltip__hover-container--outside-window": !isElementInWindow
         })}

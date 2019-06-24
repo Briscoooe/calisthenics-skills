@@ -10,3 +10,7 @@ export function getIsElementInWindow(
 
   return false;
 }
+
+export default {
+  getIsElementInWindow
+};

@@ -11,6 +11,7 @@
 }
 
 .Tooltip {
+  background-color: #282c34;
   border: 2px solid;
   border-image-source: linear-gradient(
     to right,

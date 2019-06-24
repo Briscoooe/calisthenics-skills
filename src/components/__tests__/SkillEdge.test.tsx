@@ -105,4 +105,26 @@ describe("SkillEdge", () => {
 
     expect(skillEdge).toHaveClass("SkillEdge SkillEdge--active");
   });
+
+  it("should have a class of unlocked if all next nodes are not locked", () => {
+    const startingIds = ["123", "234", "456"];
+    const startingState = ["selected", "unlocked", "selected"];
+
+    const { getByTestId } = renderComponent(startingIds, startingState);
+
+    const skillEdge = getByTestId("skill-edge");
+
+    expect(skillEdge).toHaveClass("SkillEdge SkillEdge--unlocked");
+  });
+
+  it('should not have a class of unloocked if one of the next nodes are locked', () => {
+    const startingIds = ["234", '345', '456'];
+    const startingState = ["selected", "unlocked", "locked"];
+
+    const { getByTestId } = renderComponent(startingIds, startingState);
+
+    const skillEdge = getByTestId("skill-edge");
+
+    expect(skillEdge).not.toHaveClass("SkillEdge SkillEdge--unlocked");
+  })
 });

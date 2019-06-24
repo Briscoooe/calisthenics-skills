@@ -1,27 +1,69 @@
-import React from "react";
+import * as React from "react";
+import classnames from "classnames";
 import "./Tooltip.css";
 import HSeparator from "./ui/HSeparator";
+import { getIsElementInWindow } from "../helpers";
 
-// does the bottom of the tooltip touch the bottom of the page?
-// if so the bottom of the tooltip is atthe samelevel as the bottom of the box.
 interface Props {
   tooltipTitle?: string;
   tooltipDescription?: string;
 }
 
-function Tooltip({
-  tooltipTitle = "Title",
-  tooltipDescription = "Some information"
-}: Props) {
-  return (
-    <div className="Tooltip__hover-container">
-      <div className="Tooltip">
-        <h1 className="Tooltip__title">{tooltipTitle}</h1>
-        <HSeparator />
-        <p className="Tooltip__content">{tooltipDescription}</p>
+interface State {
+  isElementInWindow: boolean;
+}
+
+class Tooltip extends React.Component<Props, State> {
+  private tooltipRef: React.RefObject<HTMLDivElement>;
+
+  constructor(props: Props) {
+    super(props);
+
+    this.tooltipRef = React.createRef();
+
+    this.state = {
+      isElementInWindow: true
+    };
+  }
+
+  componentDidMount() {
+    const elHeight = this.tooltipRef.current!.clientHeight;
+    const elTopPosition = this.tooltipRef.current!.getBoundingClientRect().top;
+
+    const isElementInWindow = getIsElementInWindow(
+      window.innerHeight,
+      window.scrollY,
+      elTopPosition,
+      elHeight
+    );
+
+    console.log(isElementInWindow);
+    
+
+    this.setState({
+      isElementInWindow
+    });
+  }
+
+  render() {
+    const { tooltipTitle, tooltipDescription } = this.props;
+    const { isElementInWindow } = this.state;
+
+    return (
+      <div
+        ref={this.tooltipRef}
+        className={classnames("Tooltip__hover-container", {
+          "Tooltip__hover-container--outside-window": !isElementInWindow
+        })}
+      >
+        <div className="Tooltip">
+          <h1 className="Tooltip__title">{tooltipTitle}</h1>
+          <HSeparator />
+          <p className="Tooltip__content">{tooltipDescription}</p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Tooltip;

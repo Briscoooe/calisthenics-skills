@@ -5,6 +5,11 @@
   top: 0;
 }
 
+.Tooltip__hover-container--outside-window {
+  top: inherit;
+  bottom: 0;
+}
+
 .Tooltip {
   border: 2px solid;
   border-image-source: linear-gradient(

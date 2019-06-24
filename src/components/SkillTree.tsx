@@ -22,12 +22,16 @@ function SkillTree() {
         id="item-two"
         previousNodeIds={["item-one"]}
         icon={BarbellIcon}
+        tooltipTitle={tooltipTitle}
+        tooltipDescription={tooltipDescription}
       />
       <SkillEdge nextNodeIds={["item-three"]} />
       <SkillNode
         id="item-three"
         previousNodeIds={["item-two"]}
         icon={BarbellIcon}
+        tooltipTitle={tooltipTitle}
+        tooltipDescription={tooltipDescription}
       />
     </React.Fragment>
   );

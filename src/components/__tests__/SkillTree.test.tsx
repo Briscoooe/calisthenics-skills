@@ -106,15 +106,13 @@ describe("SkillTree", () => {
   });
 
   it("should not select a node whose dependencies are not selected", async () => {
-    const { getByTestId, debug } = renderComponent();
+    const { getByTestId } = renderComponent();
 
     const middleSkillNode = getByTestId("item-two");
 
     fireEvent.click(middleSkillNode);
 
     await wait(0);
-
-    debug()
 
     expect(middleSkillNode).not.toHaveClass("SkillNode SkillNode--selected");
     expect(middleSkillNode).not.toHaveStyle(`background-color: #f44336`);

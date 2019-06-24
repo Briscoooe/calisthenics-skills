@@ -1,38 +1,43 @@
 import React from "react";
 import SkillNode from "./SkillNode";
 import SkillEdge from "./SkillEdge";
-import { BarbellIcon } from "../icons";
+import { Skill } from "../models";
 
-const tooltipTitle = "Phasewalker";
-const tooltipDescription =
-  "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.";
+interface Props {
+  data: Skill[];
+}
 
-function SkillTree() {
+function SkillTree(props: Props) {
   return (
     <React.Fragment>
-      <SkillNode
-        id="item-one"
-        previousNodeIds={[]}
-        icon={BarbellIcon}
-        tooltipTitle={tooltipTitle}
-        tooltipDescription={tooltipDescription}
-      />
-      <SkillEdge nextNodeIds={["item-two"]} />
-      <SkillNode
-        id="item-two"
-        previousNodeIds={["item-one"]}
-        icon={BarbellIcon}
-        tooltipTitle={tooltipTitle}
-        tooltipDescription={tooltipDescription}
-      />
-      <SkillEdge nextNodeIds={["item-three"]} />
-      <SkillNode
-        id="item-three"
-        previousNodeIds={["item-two"]}
-        icon={BarbellIcon}
-        tooltipTitle={tooltipTitle}
-        tooltipDescription={tooltipDescription}
-      />
+      {props.data.map(skill => {
+        if (skill.previousNodeIds.length === 0) {
+          return (
+            <SkillNode
+              key={skill.id}
+              id={skill.id}
+              icon={skill.icon}
+              previousNodeIds={[]}
+              tooltipTitle={skill.tooltipTitle}
+              tooltipDescription={skill.tooltipDescription}
+            />
+          );
+        } else {
+          return (
+            <React.Fragment key={skill.id}>
+              <SkillEdge nextNodeIds={[skill.id]} />
+              <SkillNode
+                key={skill.id}
+                id={skill.id}
+                icon={skill.icon}
+                previousNodeIds={skill.previousNodeIds}
+                tooltipTitle={skill.tooltipTitle}
+                tooltipDescription={skill.tooltipDescription}
+              />
+            </React.Fragment>
+          );
+        }
+      })}
     </React.Fragment>
   );
 }

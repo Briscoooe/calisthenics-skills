@@ -4,10 +4,37 @@ import wait from "waait";
 import SkillTree from "../SkillTree";
 import { SkillProvider } from "../../context/SkillContext";
 
+const mockSkillTreeData = [
+  {
+    id: "item-one",
+    previousNodeIds: [],
+    icon: './222',
+    tooltipDescription:
+      "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+    tooltipTitle: "Phasewalker"
+  },
+  {
+    id: "item-two",
+    previousNodeIds: ["item-one"],
+    icon: './222',
+    tooltipDescription:
+      "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+    tooltipTitle: "Phasewalker"
+  },
+  {
+    id: "item-three",
+    previousNodeIds: ["item-two"],
+    icon: './222',
+    tooltipDescription:
+      "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+    tooltipTitle: "Phasewalker"
+  }
+];
+
 function renderComponent() {
   return render(
     <SkillProvider>
-      <SkillTree />
+      <SkillTree data={mockSkillTreeData} />
     </SkillProvider>
   );
 }
@@ -79,13 +106,15 @@ describe("SkillTree", () => {
   });
 
   it("should not select a node whose dependencies are not selected", async () => {
-    const { getByTestId } = renderComponent();
+    const { getByTestId, debug } = renderComponent();
 
     const middleSkillNode = getByTestId("item-two");
 
     fireEvent.click(middleSkillNode);
 
     await wait(0);
+
+    debug()
 
     expect(middleSkillNode).not.toHaveClass("SkillNode SkillNode--selected");
     expect(middleSkillNode).not.toHaveStyle(`background-color: #f44336`);

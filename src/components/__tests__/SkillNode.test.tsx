@@ -7,7 +7,6 @@ function renderComponent() {
   return render(
     <SkillNode
       id="test-node"
-      previousNodeIds={[]}
       icon={BarbellIcon}
       tooltipTitle="Hey there"
       tooltipDescription="Description"

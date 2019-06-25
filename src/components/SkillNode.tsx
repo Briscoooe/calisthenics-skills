@@ -8,7 +8,7 @@ import "./SkillNode.css";
 
 interface Props {
   id: string;
-  previousNodeIds: string[];
+  parentNodeId?: string;
   icon: string;
   tooltipTitle?: string;
   tooltipDescription?: string;
@@ -62,9 +62,7 @@ class SkillNode extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    const nodeDependencies = this.props.previousNodeIds.length;
-
-    if (nodeDependencies > 0) {
+    if (this.props.parentNodeId) {
       return this.updateState(LOCKED_STATE);
     }
 
@@ -73,24 +71,20 @@ class SkillNode extends React.Component<Props, State> {
 
   componentDidUpdate() {
     const { currentState } = this.state;
+    const { parentNodeId } = this.props;
 
-    const prevNodesAreSelected = this.props.previousNodeIds.every(prevId => {
-      if (this.context.skills[prevId] !== SELECTED_STATE) {
-        return false;
-      }
+    const parentNodeIsSelected =
+      !parentNodeId || this.context.skills[parentNodeId] === SELECTED_STATE;
 
-      return true;
-    });
-
-    if (currentState === UNLOCKED_STATE && !prevNodesAreSelected) {
+    if (currentState === UNLOCKED_STATE && !parentNodeIsSelected) {
       return this.updateState(LOCKED_STATE);
     }
 
-    if (!prevNodesAreSelected) {
+    if (!parentNodeIsSelected) {
       return null;
     }
 
-    if (currentState === LOCKED_STATE && prevNodesAreSelected) {
+    if (currentState === LOCKED_STATE && parentNodeIsSelected) {
       return this.updateState(UNLOCKED_STATE);
     }
   }
@@ -123,7 +117,12 @@ class SkillNode extends React.Component<Props, State> {
             <Icon title="node-icon" src={icon} containerWidth={250} />
           </div>
         </div>
-        {showTooltip && <Tooltip tooltipTitle={tooltipTitle} tooltipDescription={tooltipDescription} />}
+        {showTooltip && (
+          <Tooltip
+            tooltipTitle={tooltipTitle}
+            tooltipDescription={tooltipDescription}
+          />
+        )}
       </div>
     );
   }

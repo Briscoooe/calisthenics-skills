@@ -36,7 +36,7 @@ const mockSkillTreeData = [
 function renderComponent() {
   return render(
     <SkillProvider>
-      <SkillTree data={mockSkillTreeData} />
+      <SkillTree title="borderlands" data={mockSkillTreeData} />
     </SkillProvider>
   );
 }

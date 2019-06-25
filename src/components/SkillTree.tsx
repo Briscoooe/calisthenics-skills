@@ -1,35 +1,17 @@
 import React from "react";
-import SkillNode from "./SkillNode";
-import SkillEdge from "./SkillEdge";
 import { Skill } from "../models";
+import SkillTreeSegment from "./SkillTreeSegment";
 
 interface Props {
   data: Skill[];
-  parentNodeId?: string;
+  title: string;
 }
 
-function SkillTree({ data, parentNodeId }: Props) {
+function SkillTree({ data, title }: Props) {
   return (
     <React.Fragment>
-      {data.map(skill => {
-        return (
-          <React.Fragment key={skill.id}>
-            <SkillNode
-              id={skill.id}
-              icon={skill.icon}
-              parentNodeId={parentNodeId}
-              tooltipTitle={skill.tooltipTitle}
-              tooltipDescription={skill.tooltipDescription}
-            />
-            {skill.children.length > 0 && (
-              <React.Fragment>
-                <SkillEdge nextNodeIds={skill.children.map(({ id }) => id)} />
-                <SkillTree data={skill.children} parentNodeId={skill.id} />
-              </React.Fragment>
-            )}
-          </React.Fragment>
-        );
-      })}
+      <h2>{title}</h2>
+      <SkillTreeSegment data={data} />
     </React.Fragment>
   );
 }

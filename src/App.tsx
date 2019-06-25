@@ -13,7 +13,7 @@ const App: React.FC = () => {
         <header className="App-header">
           <Icon src={MapIcon} title="header map icon." containerWidth={250} />
           <h1>Skill Tree Demo</h1>
-          <SkillTree data={skillTreeData} />
+          <SkillTree title="Horizontal Pull Front" data={skillTreeData} />
         </header>
       </div>
     </SkillProvider>

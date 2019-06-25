@@ -8,7 +8,11 @@ body {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 54px;
+  margin: 16px 0;
+}
+
+h2 {
   margin: 16px 0;
 }
 

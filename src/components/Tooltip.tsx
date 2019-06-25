@@ -59,7 +59,7 @@ class Tooltip extends React.Component<Props, State> {
         })}
       >
         <div className="Tooltip">
-          <h1 className="Tooltip__title">{tooltipTitle}</h1>
+          <h2 className="Tooltip__title">{tooltipTitle}</h2>
           <HSeparator />
           <p className="Tooltip__content">{tooltipDescription}</p>
         </div>

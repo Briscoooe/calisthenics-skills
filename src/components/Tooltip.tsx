@@ -37,7 +37,6 @@ class Tooltip extends React.Component<Props, State> {
 
     const isElementInWindow = getIsElementInWindow(
       window.innerHeight,
-      window.scrollY,
       elTopPosition,
       elHeight
     );

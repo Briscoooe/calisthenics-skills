@@ -1,10 +1,9 @@
 export function getIsElementInWindow(
   windowHeight: number,
-  scrollPosition: number,
   elTopPosition: number,
   elHeight: number
 ) {
-  if (windowHeight + scrollPosition > elTopPosition + elHeight) {
+  if (windowHeight > elTopPosition + elHeight) {
     return true;
   }
 

@@ -5,6 +5,7 @@ import SkillTree from "./components/SkillTree";
 import { MapIcon } from "./icons";
 import Icon from "./components/ui/Icon";
 import skillTreeData from "./data/skillTreeData";
+import { TreeProvider } from "./context/TreeContext";
 
 const App: React.FC = () => {
   return (
@@ -13,7 +14,9 @@ const App: React.FC = () => {
         <header className="App-header">
           <Icon src={MapIcon} title="header map icon." containerWidth={250} />
           <h1>Skill Tree Demo</h1>
-          <SkillTree title="Horizontal Pull Front" data={skillTreeData} />
+          <TreeProvider>
+            <SkillTree title="Horizontal Pull Front" data={skillTreeData} />
+          </TreeProvider>
         </header>
       </div>
     </SkillProvider>

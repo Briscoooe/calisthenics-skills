@@ -11,7 +11,7 @@ function SkillTree({ data, title }: Props) {
   return (
     <React.Fragment>
       <h2>{title}</h2>
-      <SkillTreeSegment data={data} />
+      <SkillTreeSegment depth={1} data={data} />
     </React.Fragment>
   );
 }

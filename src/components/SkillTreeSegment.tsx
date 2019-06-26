@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import SkillNode from "./SkillNode";
 import SkillEdge from "./SkillEdge";
 import { Skill } from "../models";
+import TreeContext from "../context/TreeContext";
 
 interface Props {
   data: Skill[];
+  depth: number;
   parentNodeId?: string;
 }
 
-function SkillTreeSegment({ data, parentNodeId }: Props) {
+function SkillTreeSegment({ data, parentNodeId, depth }: Props) {
+  const { updateTreeWidths } = useContext(TreeContext);
+
+  useEffect(() => {
+    updateTreeWidths(depth);
+  }, []);
+
   return (
     <React.Fragment>
       {data.map(skill => {
@@ -24,7 +32,11 @@ function SkillTreeSegment({ data, parentNodeId }: Props) {
             {skill.children.length > 0 && (
               <React.Fragment>
                 <SkillEdge nextNodeIds={skill.children.map(({ id }) => id)} />
-                <SkillTreeSegment data={skill.children} parentNodeId={skill.id} />
+                <SkillTreeSegment
+                  depth={depth + 1}
+                  data={skill.children}
+                  parentNodeId={skill.id}
+                />
               </React.Fragment>
             )}
           </React.Fragment>

@@ -97,25 +97,21 @@ class SkillNode extends React.Component<Props, State> {
       <div
         onMouseEnter={() => this.setState({ showTooltip: true })}
         onMouseLeave={() => this.setState({ showTooltip: false })}
-        style={{ position: "relative" }}
         data-testid="skill-node"
+        className={classnames("SkillNode__overlay", {
+          "SkillNode__overlay--selected": currentState === SELECTED_STATE
+        })}
       >
         <div
-          className={classnames("SkillNode__overlay", {
-            "SkillNode__overlay--selected": currentState === SELECTED_STATE
+          onClick={this.handleClick}
+          data-testid={this.props.id}
+          className={classnames("SkillNode", {
+            "SkillNode--selected": currentState === SELECTED_STATE,
+            "SkillNode--unlocked": currentState === UNLOCKED_STATE,
+            "SkillNode--locked": currentState === LOCKED_STATE
           })}
         >
-          <div
-            onClick={this.handleClick}
-            data-testid={this.props.id}
-            className={classnames("SkillNode", {
-              "SkillNode--selected": currentState === SELECTED_STATE,
-              "SkillNode--unlocked": currentState === UNLOCKED_STATE,
-              "SkillNode--locked": currentState === LOCKED_STATE
-            })}
-          >
-            <Icon title="node-icon" src={icon} containerWidth={250} />
-          </div>
+          <Icon title="node-icon" src={icon} containerWidth={250} />
         </div>
         {showTooltip && (
           <Tooltip

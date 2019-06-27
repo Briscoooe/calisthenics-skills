@@ -4,8 +4,8 @@ import SkillEdge from "../SkillEdge";
 import SkillContext, { SkillProvider } from "../../context/SkillContext";
 
 interface Props {
-  startingState: string[];
-  startingIds: string[];
+  startingState: string;
+  startingId: string;
 }
 
 interface Context {
@@ -18,11 +18,7 @@ class ContextSetter extends React.Component<Props> {
   constructor(props: Props, context: Context) {
     super(props);
 
-    props.startingIds.map((id, i) => {
-      context.updateSkillState(id, props.startingState[i]);
-
-      return null;
-    });
+    context.updateSkillState(props.startingId, props.startingState);
   }
 
   render() {
@@ -30,13 +26,13 @@ class ContextSetter extends React.Component<Props> {
   }
 }
 
-function renderComponent(nextNodeIds: string[], startingState: string[]) {
+function renderComponent(nextNodeId: string, startingState: string) {
   let updateState: Function | null;
 
   const api = render(
     <SkillProvider>
-      <ContextSetter startingState={startingState} startingIds={nextNodeIds} />
-      <SkillEdge nextNodeIds={nextNodeIds} />
+      <ContextSetter startingState={startingState} startingId={nextNodeId} />
+      <SkillEdge nextNodeId={nextNodeId} />
     </SkillProvider>
   );
 
@@ -52,10 +48,10 @@ describe("SkillEdge", () => {
   afterEach(cleanup);
 
   it("should be inactive if the next node is unlocked", async () => {
-    const startingIds = ["123"];
-    const startingState = ["unlocked"];
+    const startingId = "123";
+    const startingState = "unlocked";
 
-    const { getByTestId } = renderComponent(startingIds, startingState);
+    const { getByTestId } = renderComponent(startingId, startingState);
 
     const skillEdge = getByTestId("skill-edge");
 
@@ -63,21 +59,10 @@ describe("SkillEdge", () => {
   });
 
   it("should be inactive if the next node is locked", () => {
-    const startingIds = ["123"];
-    const startingState = ["unlocked"];
+    const startingId = "123";
+    const startingState = "unlocked";
 
-    const { getByTestId } = renderComponent(startingIds, startingState);
-
-    const skillEdge = getByTestId("skill-edge");
-
-    expect(skillEdge).not.toHaveClass("SkillEdge--active");
-  });
-
-  it("should be inactive if one of many of the next nodes are not selected", () => {
-    const startingIds = ["123", "234"];
-    const startingState = ["unlocked", "selected"];
-
-    const { getByTestId } = renderComponent(startingIds, startingState);
+    const { getByTestId } = renderComponent(startingId, startingState);
 
     const skillEdge = getByTestId("skill-edge");
 
@@ -85,46 +70,13 @@ describe("SkillEdge", () => {
   });
 
   it("should be active if the next node is selected", () => {
-    const startingIds = ["123"];
-    const startingState = ["selected"];
+    const startingId = "123";
+    const startingState = "selected";
 
-    const { getByTestId } = renderComponent(startingIds, startingState);
-
-    const skillEdge = getByTestId("skill-edge");
-
-    expect(skillEdge).toHaveClass("SkillEdge SkillEdge--active");
-  });
-
-  it("should be active if all of the next nodes are selected", () => {
-    const startingIds = ["123"];
-    const startingState = ["selected"];
-
-    const { getByTestId } = renderComponent(startingIds, startingState);
+    const { getByTestId } = renderComponent(startingId, startingState);
 
     const skillEdge = getByTestId("skill-edge");
 
     expect(skillEdge).toHaveClass("SkillEdge SkillEdge--active");
   });
-
-  it("should have a class of unlocked if all next nodes are not locked", () => {
-    const startingIds = ["123", "234", "456"];
-    const startingState = ["selected", "unlocked", "selected"];
-
-    const { getByTestId } = renderComponent(startingIds, startingState);
-
-    const skillEdge = getByTestId("skill-edge");
-
-    expect(skillEdge).toHaveClass("SkillEdge SkillEdge--unlocked");
-  });
-
-  it('should not have a class of unloocked if one of the next nodes are locked', () => {
-    const startingIds = ["234", '345', '456'];
-    const startingState = ["selected", "unlocked", "locked"];
-
-    const { getByTestId } = renderComponent(startingIds, startingState);
-
-    const skillEdge = getByTestId("skill-edge");
-
-    expect(skillEdge).not.toHaveClass("SkillEdge SkillEdge--unlocked");
-  })
 });

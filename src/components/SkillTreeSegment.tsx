@@ -15,31 +15,34 @@ function SkillTreeSegment({ data, parentNodeId, depth }: Props) {
 
   useEffect(() => {
     updateTreeWidths(depth);
+    // eslint-disable-next-line
   }, []);
 
   return (
     <React.Fragment>
       {data.map(skill => {
         return (
-          <React.Fragment key={skill.id}>
-            <SkillNode
-              id={skill.id}
-              icon={skill.icon}
-              parentNodeId={parentNodeId}
-              tooltipTitle={skill.tooltipTitle}
-              tooltipDescription={skill.tooltipDescription}
-            />
+          <div className="node" key={skill.id}>
+              <div>
+              {parentNodeId && <SkillEdge nextNodeId={skill.id} />}
+              <SkillNode
+                id={skill.id}
+                icon={skill.icon}
+                parentNodeId={parentNodeId}
+                tooltipTitle={skill.tooltipTitle}
+                tooltipDescription={skill.tooltipDescription}
+              />
+            </div>
             {skill.children.length > 0 && (
-              <React.Fragment>
-                <SkillEdge nextNodeIds={skill.children.map(({ id }) => id)} />
+              <div className="children">
                 <SkillTreeSegment
                   depth={depth + 1}
                   data={skill.children}
                   parentNodeId={skill.id}
                 />
-              </React.Fragment>
+              </div>
             )}
-          </React.Fragment>
+          </div>
         );
       })}
     </React.Fragment>

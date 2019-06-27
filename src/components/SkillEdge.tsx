@@ -5,13 +5,13 @@ import "./SkillEdge.css";
 import { SELECTED_STATE, LOCKED_STATE } from "./constants";
 
 interface Props {
-  nextNodeIds: string[];
+  nextNodeId: string;
 }
 
-function SkillEdge({ nextNodeIds }: Props) {
+function SkillEdge({ nextNodeId }: Props) {
   const { skills } = useContext(SkillContext);
-  const isActive = nextNodeIds.every(id => skills[id] === SELECTED_STATE);
-  const isUnlocked = nextNodeIds.every(id => skills[id] !== LOCKED_STATE);
+  const isActive =  skills[nextNodeId] === SELECTED_STATE;
+  const isUnlocked = skills[nextNodeId] !== LOCKED_STATE;
 
   return (
     <div

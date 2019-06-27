@@ -22,8 +22,11 @@ function SkillTreeSegment({ data, parentNodeId, depth }: Props) {
     <React.Fragment>
       {data.map(skill => {
         return (
-          <div className="node" key={skill.id}>
-              <div>
+          <div
+            className="node"
+            key={skill.id}
+          >
+            <div>
               {parentNodeId && <SkillEdge nextNodeId={skill.id} />}
               <SkillNode
                 id={skill.id}
@@ -34,7 +37,7 @@ function SkillTreeSegment({ data, parentNodeId, depth }: Props) {
               />
             </div>
             {skill.children.length > 0 && (
-              <div className="children">
+              <div className="children" style={{ display: "flex" }}>
                 <SkillTreeSegment
                   depth={depth + 1}
                   data={skill.children}

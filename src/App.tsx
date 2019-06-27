@@ -11,13 +11,15 @@ const App: React.FC = () => {
   return (
     <SkillProvider>
       <div className="App">
-        <header className="App-header">
+        <header className="App__header">
           <Icon src={MapIcon} title="header map icon." containerWidth={250} />
           <h1>Skill Tree Demo</h1>
+        </header>
+        <section className="App__body">
           <TreeProvider>
             <SkillTree title="Horizontal Pull Front" data={skillTreeData} />
           </TreeProvider>
-        </header>
+        </section>
       </div>
     </SkillProvider>
   );

@@ -1,5 +1,7 @@
 .SkillNode__overlay {
+  margin: 0 auto;
   position: relative;
+  width: fit-content;
 }
 
 .SkillNode__overlay:before {
@@ -110,7 +112,8 @@
 }
 
 @keyframes shadowpulse {
-  from, 20% {
+  from,
+  20% {
     box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.5);
   }
 

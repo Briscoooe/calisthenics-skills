@@ -2,11 +2,12 @@ import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import SkillNode from "../SkillNode";
 import { BarbellIcon } from "../../icons";
+import { Skill } from "../../models";
 
-function renderComponent() {
+function renderComponent(childData: Skill[] = []) {
   return render(
     <SkillNode
-      childData={[]}
+      childData={childData}
       id="test-node"
       icon={BarbellIcon}
       tooltipTitle="Hey there"
@@ -16,7 +17,7 @@ function renderComponent() {
 }
 
 describe("SkillNode component", () => {
-  afterEach(cleanup)
+  afterEach(cleanup);
 
   it("should show and hide the tooltip on mouseenter and mouseleave", () => {
     const { getByTestId, queryByText } = renderComponent();
@@ -38,14 +39,14 @@ describe("SkillNode component", () => {
     const { getByTestId, queryByText } = renderComponent();
 
     const skillNode = getByTestId("test-node");
-    
+
     fireEvent.mouseEnter(skillNode);
-    
+
     expect(queryByText("Hey there")).toBeTruthy();
     expect(queryByText("Description")).toBeTruthy();
-    
+
     const tooltipContainer = getByTestId("tooltip-container");
-    
+
     fireEvent.mouseEnter(tooltipContainer);
 
     expect(queryByText("Hey there")).toBeTruthy();
@@ -57,3 +58,4 @@ describe("SkillNode component", () => {
     expect(queryByText("Description")).toBeNull();
   });
 });
+ 

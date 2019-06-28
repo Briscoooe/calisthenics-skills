@@ -8,12 +8,17 @@ interface Props {
   title: string;
 }
 
+const defaultParentPosition = {
+  bottom: 0,
+  center: 0
+};
+
 function SkillTree({ data, title }: Props) {
   return (
     <React.Fragment>
       <h2>{title}</h2>
       <div className="SkillTree">
-        <SkillTreeSegment parentBottomPosition={0} data={data} />
+        <SkillTreeSegment parentPosition={defaultParentPosition} data={data} />
       </div>
     </React.Fragment>
   );

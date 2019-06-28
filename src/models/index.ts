@@ -5,3 +5,8 @@ export type Skill = {
   tooltipDescription?: string;
   children: Skill[];
 };
+
+export type ParentPosition = {
+  bottom: number;
+  center: number;
+};

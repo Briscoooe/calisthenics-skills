@@ -1,7 +1,7 @@
 import { BarbellIcon } from "../icons";
 import { Skill } from "../models";
 
-export const smallTree: Skill[] = [
+export const simpleTreeData: Skill[] = [
   {
     id: "tuck-front-lever",
     icon: BarbellIcon,

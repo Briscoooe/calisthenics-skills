@@ -1,22 +1,26 @@
 import React from "react";
 import SkillNode from "./SkillNode";
 import SkillEdge from "./SkillEdge";
-import { Skill } from "../models";
+import { Skill, ParentPosition } from "../models";
 
 interface Props {
   data: Skill[];
-  parentBottomPosition: number;
+  parentPosition: ParentPosition;
   parentNodeId?: string;
 }
 
-function SkillTreeSegment({ data, parentNodeId, parentBottomPosition }: Props) {
+function SkillTreeSegment({ data, parentNodeId, parentPosition }: Props) {
   return (
     <React.Fragment>
       {data.map(skill => {
         return (
           <div key={skill.id}>
             {parentNodeId && (
-              <SkillEdge fromPosition={parentBottomPosition} nextNodeId={skill.id} />
+              <SkillEdge
+                topXPosition={parentPosition.bottom}
+                topYPosition={parentPosition.center}
+                nextNodeId={skill.id}
+              />
             )}
             <SkillNode
               id={skill.id}

@@ -6,7 +6,7 @@ import Tooltip from "./Tooltip";
 import Icon from "./ui/Icon";
 import "./SkillNode.css";
 import SkillTreeSegment from "./SkillTreeSegment";
-import { Skill } from "../models";
+import { Skill, ParentPosition } from "../models";
 
 interface Props {
   id: string;
@@ -31,7 +31,11 @@ interface Context {
 class SkillNode extends React.Component<Props, State> {
   static contextType = SkillContext;
   private skillNodeRef: React.RefObject<HTMLDivElement>;
-  private parentBottomPosition: number = 0;
+  
+  private parentPosition: ParentPosition = {
+    bottom: 0,
+    center: 0
+  };
 
   constructor(props: Props, context: Context) {
     super(props);
@@ -68,10 +72,16 @@ class SkillNode extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    if (this.skillNodeRef.current !== null) {
-      this.parentBottomPosition = this.skillNodeRef.current!.getBoundingClientRect().bottom;
-      console.log("fromRef.current", this.parentBottomPosition);
-    }
+    const {
+      bottom,
+      left,
+      right
+    } = this.skillNodeRef.current!.getBoundingClientRect();
+
+    this.parentPosition = {
+      bottom,
+      center: (right - left) / 2 + left
+    };
 
     if (this.props.parentNodeId) {
       return this.updateState(LOCKED_STATE);
@@ -147,7 +157,7 @@ class SkillNode extends React.Component<Props, State> {
         {childData.length > 0 && (
           <div className="children" style={{ display: "flex" }}>
             <SkillTreeSegment
-              parentBottomPosition={this.parentBottomPosition}
+              parentPosition={this.parentPosition}
               data={childData}
               parentNodeId={id}
             />

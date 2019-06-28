@@ -91,13 +91,11 @@ class SkillNode extends React.Component<Props, State> {
 
   render() {
     const { currentState, showTooltip } = this.state;
-    const { icon, tooltipTitle, tooltipDescription } = this.props;
+    const { icon, tooltipTitle, tooltipDescription, children } = this.props;
 
     return (
-      <div className="SkillNode__container">
+      <React.Fragment>
         <div
-          onMouseEnter={() => this.setState({ showTooltip: true })}
-          onMouseLeave={() => this.setState({ showTooltip: false })}
           data-testid="skill-node"
           className={classnames("SkillNode__overlay", {
             "SkillNode__overlay--selected": currentState === SELECTED_STATE
@@ -106,6 +104,8 @@ class SkillNode extends React.Component<Props, State> {
           <div
             onClick={this.handleClick}
             data-testid={this.props.id}
+            onMouseEnter={() => this.setState({ showTooltip: true })}
+            onMouseLeave={() => this.setState({ showTooltip: false })}
             className={classnames("SkillNode", {
               "SkillNode--selected": currentState === SELECTED_STATE,
               "SkillNode--unlocked": currentState === UNLOCKED_STATE,
@@ -115,13 +115,19 @@ class SkillNode extends React.Component<Props, State> {
             <Icon title="node-icon" src={icon} containerWidth={250} />
           </div>
           {showTooltip && (
-            <Tooltip
-              tooltipTitle={tooltipTitle}
-              tooltipDescription={tooltipDescription}
-            />
+            <div
+              onMouseEnter={() => this.setState({ showTooltip: true })}
+              onMouseLeave={() => this.setState({ showTooltip: false })}
+            >
+              <Tooltip
+                tooltipTitle={tooltipTitle}
+                tooltipDescription={tooltipDescription}
+              />
+            </div>
           )}
         </div>
-      </div>
+        {children}
+      </React.Fragment>
     );
   }
 }

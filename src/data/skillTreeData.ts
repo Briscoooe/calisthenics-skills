@@ -1,6 +1,43 @@
 import { BarbellIcon } from "../icons";
 import { Skill } from "../models";
 
+export const smallTree: Skill[] = [
+  {
+    id: "tuck-front-lever",
+    icon: BarbellIcon,
+    tooltipDescription:
+      "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+    tooltipTitle: "Tuck Front Lever",
+    children: [
+      {
+        id: "one-leg-front-lever",
+        icon: BarbellIcon,
+        tooltipDescription:
+          "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+        tooltipTitle: "One Legged Front Level",
+        children: []
+      },
+      {
+        id: "tuck-icm",
+        icon: BarbellIcon,
+        tooltipDescription:
+          "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+        tooltipTitle: "Tuck Ice Cream Maker",
+        children: [
+          {
+            id: "tick-icm",
+            icon: BarbellIcon,
+            tooltipDescription:
+              "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+            tooltipTitle: "Tick Ice Cream Maker",
+            children: []
+          }
+        ]
+      }
+    ]
+  }
+];
+
 const skillTreeData: Skill[] = [
   {
     id: "vertical-row",

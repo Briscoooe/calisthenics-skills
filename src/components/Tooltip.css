@@ -1,7 +1,7 @@
 .Tooltip__hover-container {
+  left: 108px;
   padding: 0 8px;
   position: absolute;
-  left: 84px;
   top: 0;
   z-index: 11;
 }

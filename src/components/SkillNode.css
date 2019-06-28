@@ -1,11 +1,7 @@
-.SkillNode__container {
-  margin: 0 auto;
-  width: fit-content;
-}
-
 .SkillNode__overlay {
-  margin: 0 24px;
+  margin: 0 auto;
   position: relative;
+  width: fit-content;
 }
 
 .SkillNode__overlay:before {
@@ -32,6 +28,7 @@
   cursor: pointer;
   display: flex;
   height: 80px;
+  margin: 0 24px;
   position: relative;
   transition: box-shadow 0.6s, opacity 1s;
   user-select: none;

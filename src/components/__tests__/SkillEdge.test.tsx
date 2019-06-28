@@ -32,7 +32,7 @@ function renderComponent(nextNodeId: string, startingState: string) {
   const api = render(
     <SkillProvider>
       <ContextSetter startingState={startingState} startingId={nextNodeId} />
-      <SkillEdge nextNodeId={nextNodeId} />
+      <SkillEdge fromPosition={0} nextNodeId={nextNodeId} />
     </SkillProvider>
   );
 

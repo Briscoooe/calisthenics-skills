@@ -1,13 +1,16 @@
-import React from "react";
+import React, { Children } from "react";
 import classnames from "classnames";
 import SkillContext from "../context/SkillContext";
 import { LOCKED_STATE, UNLOCKED_STATE, SELECTED_STATE } from "./constants";
 import Tooltip from "./Tooltip";
 import Icon from "./ui/Icon";
 import "./SkillNode.css";
+import SkillTreeSegment from "./SkillTreeSegment";
+import { Skill } from "../models";
 
 interface Props {
   id: string;
+  childData: Skill[];
   parentNodeId?: string;
   icon: string;
   tooltipTitle?: string;
@@ -27,11 +30,14 @@ interface Context {
 
 class SkillNode extends React.Component<Props, State> {
   static contextType = SkillContext;
+  private skillNodeRef: React.RefObject<HTMLDivElement>;
+  private parentBottomPosition: number = 0;
 
   constructor(props: Props, context: Context) {
     super(props);
 
     const skillState = context.skills[props.id];
+    this.skillNodeRef = React.createRef();
 
     this.state = {
       currentState: skillState,
@@ -62,6 +68,11 @@ class SkillNode extends React.Component<Props, State> {
   };
 
   componentDidMount() {
+    if (this.skillNodeRef.current !== null) {
+      this.parentBottomPosition = this.skillNodeRef.current!.getBoundingClientRect().bottom;
+      console.log("fromRef.current", this.parentBottomPosition);
+    }
+
     if (this.props.parentNodeId) {
       return this.updateState(LOCKED_STATE);
     }
@@ -91,7 +102,13 @@ class SkillNode extends React.Component<Props, State> {
 
   render() {
     const { currentState, showTooltip } = this.state;
-    const { icon, tooltipTitle, tooltipDescription, children } = this.props;
+    const {
+      icon,
+      childData,
+      tooltipTitle,
+      tooltipDescription,
+      id
+    } = this.props;
 
     return (
       <React.Fragment>
@@ -103,6 +120,7 @@ class SkillNode extends React.Component<Props, State> {
         >
           <div
             onClick={this.handleClick}
+            ref={this.skillNodeRef}
             data-testid={this.props.id}
             onMouseEnter={() => this.setState({ showTooltip: true })}
             onMouseLeave={() => this.setState({ showTooltip: false })}
@@ -126,7 +144,15 @@ class SkillNode extends React.Component<Props, State> {
             </div>
           )}
         </div>
-        {children}
+        {childData.length > 0 && (
+          <div className="children" style={{ display: "flex" }}>
+            <SkillTreeSegment
+              parentBottomPosition={this.parentBottomPosition}
+              data={childData}
+              parentNodeId={id}
+            />
+          </div>
+        )}
       </React.Fragment>
     );
   }

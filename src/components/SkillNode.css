@@ -9,11 +9,11 @@
   border-radius: 4px;
   content: " ";
   height: 100%;
-  left: 0;
+  left: 24px;
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  width: 100%;
+  width: 82px;
   z-index: 10;
 }
 

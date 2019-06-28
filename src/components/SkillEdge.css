@@ -1,3 +1,9 @@
+.SkillEdge__container {
+  height: 56px;
+  margin: 0 auto;
+  width: 4px;
+}
+
 .SkillEdge {
   border: 1px solid white;
   background: linear-gradient(
@@ -10,8 +16,8 @@
   background-size: 100% 200%;
   background-position: left bottom;
   height: 56px;
-  margin: 0 auto;
   opacity: 0.5;
+  position: absolute;
   transition: opacity 0.6s;
   width: 4px;
 }

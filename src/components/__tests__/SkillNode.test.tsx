@@ -6,6 +6,7 @@ import { BarbellIcon } from "../../icons";
 function renderComponent() {
   return render(
     <SkillNode
+      childData={[]}
       id="test-node"
       icon={BarbellIcon}
       tooltipTitle="Hey there"

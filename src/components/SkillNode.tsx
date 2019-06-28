@@ -94,31 +94,33 @@ class SkillNode extends React.Component<Props, State> {
     const { icon, tooltipTitle, tooltipDescription } = this.props;
 
     return (
-      <div
-        onMouseEnter={() => this.setState({ showTooltip: true })}
-        onMouseLeave={() => this.setState({ showTooltip: false })}
-        data-testid="skill-node"
-        className={classnames("SkillNode__overlay", {
-          "SkillNode__overlay--selected": currentState === SELECTED_STATE
-        })}
-      >
+      <div className="SkillNode__container">
         <div
-          onClick={this.handleClick}
-          data-testid={this.props.id}
-          className={classnames("SkillNode", {
-            "SkillNode--selected": currentState === SELECTED_STATE,
-            "SkillNode--unlocked": currentState === UNLOCKED_STATE,
-            "SkillNode--locked": currentState === LOCKED_STATE
+          onMouseEnter={() => this.setState({ showTooltip: true })}
+          onMouseLeave={() => this.setState({ showTooltip: false })}
+          data-testid="skill-node"
+          className={classnames("SkillNode__overlay", {
+            "SkillNode__overlay--selected": currentState === SELECTED_STATE
           })}
         >
-          <Icon title="node-icon" src={icon} containerWidth={250} />
+          <div
+            onClick={this.handleClick}
+            data-testid={this.props.id}
+            className={classnames("SkillNode", {
+              "SkillNode--selected": currentState === SELECTED_STATE,
+              "SkillNode--unlocked": currentState === UNLOCKED_STATE,
+              "SkillNode--locked": currentState === LOCKED_STATE
+            })}
+          >
+            <Icon title="node-icon" src={icon} containerWidth={250} />
+          </div>
+          {showTooltip && (
+            <Tooltip
+              tooltipTitle={tooltipTitle}
+              tooltipDescription={tooltipDescription}
+            />
+          )}
         </div>
-        {showTooltip && (
-          <Tooltip
-            tooltipTitle={tooltipTitle}
-            tooltipDescription={tooltipDescription}
-          />
-        )}
       </div>
     );
   }

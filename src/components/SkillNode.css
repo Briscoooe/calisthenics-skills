@@ -1,7 +1,11 @@
-.SkillNode__overlay {
+.SkillNode__container {
   margin: 0 auto;
-  position: relative;
   width: fit-content;
+}
+
+.SkillNode__overlay {
+  margin: 0 24px;
+  position: relative;
 }
 
 .SkillNode__overlay:before {

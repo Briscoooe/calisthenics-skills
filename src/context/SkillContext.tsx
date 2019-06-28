@@ -6,7 +6,7 @@ interface State {
 
 interface ISkillContext {
   skills: Skills;
-  updateSkillState: Function;
+  updateSkillState: (key: string, updatedState: string) => void;
 }
 
 interface Skills {
@@ -15,7 +15,7 @@ interface Skills {
 
 const SkillContext = React.createContext<ISkillContext>({
   skills: {},
-  updateSkillState: () => null
+  updateSkillState: () => undefined
 });
 
 export class SkillProvider extends React.Component<{}, State> {
@@ -23,7 +23,7 @@ export class SkillProvider extends React.Component<{}, State> {
     skills: {}
   };
 
-  updateSkillState = (key: string, updatedState: string) => {
+  updateSkillState = (key: string, updatedState: string): void => {
     this.setState((prevState: State) => {
       return {
         skills: {

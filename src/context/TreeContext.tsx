@@ -10,12 +10,12 @@ interface State {
 
 interface ITreeContext {
   treeWidths: number[];
-  updateTreeWidths: Function;
+  updateTreeWidths: (depth: number) => void;
 }
 
 const TreeContext = React.createContext<ITreeContext>({
   treeWidths: [],
-  updateTreeWidths: () => null
+  updateTreeWidths: () => undefined
 });
 
 export class TreeProvider extends React.Component<Props, State> {

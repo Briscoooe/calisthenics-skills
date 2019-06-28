@@ -9,7 +9,7 @@ interface Props {
 }
 
 interface Context {
-  updateSkillState: Function;
+  updateSkillState: (startingId: string, startingState: string) => void;
 }
 
 class ContextSetter extends React.Component<Props> {
@@ -27,7 +27,7 @@ class ContextSetter extends React.Component<Props> {
 }
 
 function renderComponent(nextNodeId: string, startingState: string) {
-  let updateState: Function | null;
+  let updateState: Function | void;
 
   const api = render(
     <SkillProvider>

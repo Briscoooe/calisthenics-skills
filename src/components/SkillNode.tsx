@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import classnames from "classnames";
 import SkillContext from "../context/SkillContext";
 import { LOCKED_STATE, UNLOCKED_STATE, SELECTED_STATE } from "./constants";
@@ -31,7 +31,7 @@ interface Context {
 class SkillNode extends React.Component<Props, State> {
   static contextType = SkillContext;
   private skillNodeRef: React.RefObject<HTMLDivElement>;
-  
+
   private parentPosition: ParentPosition = {
     bottom: 0,
     center: 0
@@ -156,11 +156,16 @@ class SkillNode extends React.Component<Props, State> {
         </div>
         {childData.length > 0 && (
           <div className="children" style={{ display: "flex" }}>
-            <SkillTreeSegment
-              parentPosition={this.parentPosition}
-              data={childData}
-              parentNodeId={id}
-            />
+            {childData.map(skill => {
+              return (
+                <SkillTreeSegment
+                  key={skill.id}
+                  parentPosition={this.parentPosition}
+                  skill={skill}
+                  parentNodeId={id}
+                />
+              );
+            })}
           </div>
         )}
       </React.Fragment>

@@ -10,3 +10,8 @@ export type ParentPosition = {
   bottom: number;
   center: number;
 };
+
+export type ChildPosition = {
+  top: number;
+  center: number;
+};

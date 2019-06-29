@@ -18,7 +18,15 @@ function SkillTree({ data, title }: Props) {
     <React.Fragment>
       <h2>{title}</h2>
       <div className="SkillTree">
-        <SkillTreeSegment parentPosition={defaultParentPosition} data={data} />
+        {data.map(skill => {
+          return (
+            <SkillTreeSegment
+              key={skill.id}
+              parentPosition={defaultParentPosition}
+              skill={skill}
+            />
+          );
+        })}
       </div>
     </React.Fragment>
   );

@@ -1,25 +1,20 @@
 .SkillEdge__container {
   height: 56px;
-  margin: 0 auto;
-  width: 4px;
 }
 
 .SkillEdge {
-  border: 1px solid white;
   background: linear-gradient(
-    to bottom,
+    to right,
     rgba(255, 255, 255, 1) 0%,
     rgba(255, 255, 255, 1) 50%,
     rgba(255, 255, 255, 0) 51%,
     rgba(255, 255, 255, 0) 100%
   );
-  background-size: 100% 200%;
-  background-position: left bottom;
-  height: 56px;
+  background-size: 200% 100%;
+  background-position: right top;
   opacity: 0.5;
-  position: absolute;
   transition: opacity 0.6s;
-  width: 4px;
+  z-index: -1;
 }
 
 .SkillEdge--unlocked {
@@ -28,16 +23,16 @@
 
 .SkillEdge--active {
   animation: slidedown 1.2s 1 ease-out;
-  background-position: right top;
+  background-position: left bottom;
 }
 
 @keyframes slidedown {
   from,
   50% {
-    background-position: left bottom;
+    background-position: right top;
   }
 
   to {
-    background-position: right top;
+    background-position: left bottom;
   }
 }

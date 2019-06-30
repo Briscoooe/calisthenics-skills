@@ -52,7 +52,7 @@ class SkillNode extends React.Component<Props, State> {
     };
   }
 
-  handleResize = () => {
+  calculatePosition = () => {
     const {
       bottom,
       left,
@@ -67,6 +67,10 @@ class SkillNode extends React.Component<Props, State> {
         center: (right - left) / 2 + left
       }
     });
+  };
+
+  handleResize = () => {
+    this.calculatePosition();
   };
 
   handleClick = () => {
@@ -92,20 +96,7 @@ class SkillNode extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    const {
-      bottom,
-      left,
-      right
-    } = this.skillNodeRef.current!.getBoundingClientRect();
-
-    const scrollY = window.scrollY;
-
-    this.setState({
-      parentPosition: {
-        bottom: bottom + scrollY,
-        center: (right - left) / 2 + left
-      }
-    });
+    this.calculatePosition();
 
     window.addEventListener("resize", this.throttledResize);
 
@@ -170,7 +161,7 @@ class SkillNode extends React.Component<Props, State> {
               "SkillNode--locked": currentState === LOCKED_STATE
             })}
           >
-            <Icon title="node-icon" src={icon} containerWidth={250} />
+            <Icon title="node-icon" src={icon} containerWidth={80} />
           </div>
           {showTooltip && (
             <div

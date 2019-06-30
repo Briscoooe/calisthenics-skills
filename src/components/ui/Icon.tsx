@@ -11,7 +11,11 @@ function Icon({ src, title, containerWidth }: Props) {
   return (
     <div
       data-testid="icon-container"
-      style={{ width: `${containerWidth}px`, display: "flex" }}
+      style={{
+        height: `${containerWidth}px`,
+        width: `${containerWidth}px`,
+        display: "flex"
+      }}
     >
       <img src={src} alt={title} className="Icon" />
     </div>

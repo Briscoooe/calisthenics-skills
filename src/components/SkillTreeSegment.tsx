@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { throttle, Cancelable } from "lodash";
+import { throttle } from "lodash";
 import SkillNode from "./SkillNode";
 import SkillEdge from "./SkillEdge";
 import { Skill, ParentPosition, ChildPosition } from "../models";
@@ -22,7 +22,7 @@ function SkillTreeSegment({ skill, parentNodeId, parentPosition }: Props) {
   );
 
   useEffect(() => {
-    function handleResize() {
+    function calculatePosition() {
       const {
         top,
         left,
@@ -37,11 +37,11 @@ function SkillTreeSegment({ skill, parentNodeId, parentPosition }: Props) {
       });
     }
 
-    window.addEventListener("resize", throttle(handleResize, 250));
-    handleResize();
+    window.addEventListener("resize", throttle(calculatePosition, 250));
+    calculatePosition();
 
     return function cleanup() {
-      window.removeEventListener("resize", throttle(handleResize));
+      window.removeEventListener("resize", throttle(calculatePosition));
     };
   }, []);
 

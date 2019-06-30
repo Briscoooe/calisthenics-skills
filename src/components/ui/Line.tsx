@@ -34,7 +34,7 @@ function Line({
         border: "1px solid white",
         height: "4px",
         position: "absolute",
-        top: `${topY}px`,
+        top: `${topY - 1}px`,
         left: `${topX + leftOffset}px`,
         transform: `rotate(${angle}deg)`,
         transformOrigin: "0 0",

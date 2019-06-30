@@ -15,7 +15,7 @@ const defaultParentPosition = {
 
 function SkillTree({ data, title }: Props) {
   return (
-    <React.Fragment>
+    <div>
       <h2>{title}</h2>
       <div className="SkillTree">
         {data.map(skill => {
@@ -28,7 +28,7 @@ function SkillTree({ data, title }: Props) {
           );
         })}
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 

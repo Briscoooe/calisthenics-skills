@@ -1,35 +1,27 @@
 import { BarbellIcon } from "../icons";
 import { Skill } from "../models";
 
-export const simpleTreeData: Skill[] = [
+export const horizontalPullBackData: Skill[] = [
   {
-    id: "tuck-front-lever",
+    id: "german-hang",
     icon: BarbellIcon,
     tooltipDescription:
       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-    tooltipTitle: "Tuck Front Lever",
+    tooltipTitle: "German Hang",
     children: [
       {
-        id: "one-leg-front-lever",
+        id: "ol-back-lever",
         icon: BarbellIcon,
         tooltipDescription:
           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-        tooltipTitle: "One Legged Front Level",
-        children: []
-      },
-      {
-        id: "tuck-icm",
-        icon: BarbellIcon,
-        tooltipDescription:
-          "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-        tooltipTitle: "Tuck Ice Cream Maker",
+        tooltipTitle: "One-legged Back Lever",
         children: [
           {
-            id: "tick-icm",
+            id: "back-lever",
             icon: BarbellIcon,
             tooltipDescription:
               "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-            tooltipTitle: "Tick Ice Cream Maker",
+            tooltipTitle: "Back Lever",
             children: []
           }
         ]
@@ -38,7 +30,7 @@ export const simpleTreeData: Skill[] = [
   }
 ];
 
-const skillTreeData: Skill[] = [
+export const horizontalPullFrontData: Skill[] = [
   {
     id: "vertical-row",
     icon: BarbellIcon,
@@ -128,4 +120,58 @@ const skillTreeData: Skill[] = [
   }
 ];
 
-export default skillTreeData;
+export const legPullData: Skill[] = [
+  {
+    id: "ol-deadlift",
+    icon: BarbellIcon,
+    tooltipDescription:
+      "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+    tooltipTitle: "One-Legged Deadlift",
+    children: [
+      {
+        id: "45deg-hip-nc",
+        icon: BarbellIcon,
+        tooltipDescription:
+          "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+        tooltipTitle: "45° Hip Nordic Curl",
+        children: [
+          {
+            id: "nordic-curl-negative",
+            icon: BarbellIcon,
+            tooltipDescription:
+              "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+            tooltipTitle: "Nordic Curl Negative",
+            children: [
+              {
+                id: "nordic-curl",
+                icon: BarbellIcon,
+                tooltipDescription:
+                  "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+                tooltipTitle: "Nordic Curl",
+                children: [
+                  {
+                    id: "tuck-ol-nordic-curl",
+                    icon: BarbellIcon,
+                    tooltipDescription:
+                      "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+                    tooltipTitle: "Tuck One-Legged Nordic Curl",
+                    children: [
+                      {
+                        id: "ol-nordic-curl",
+                        icon: BarbellIcon,
+                        tooltipDescription:
+                          "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+                        tooltipTitle: "One-Legged Nordic Curl",
+                        children: []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+];

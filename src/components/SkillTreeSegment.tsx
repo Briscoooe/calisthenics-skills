@@ -15,7 +15,11 @@ const defaultParentPosition: ChildPosition = {
   center: 0
 };
 
-function SkillTreeSegment({ skill, parentNodeId, parentPosition }: Props) {
+const SkillTreeSegment = React.memo(function({
+  skill,
+  parentNodeId,
+  parentPosition
+}: Props) {
   const [childPosition, setChildPosition] = useState(defaultParentPosition);
   const skillNodeRef: React.MutableRefObject<HTMLDivElement | null> = useRef(
     null
@@ -70,6 +74,6 @@ function SkillTreeSegment({ skill, parentNodeId, parentPosition }: Props) {
       </div>
     </div>
   );
-}
+});
 
 export default SkillTreeSegment;

@@ -1,5 +1,6 @@
 import React from "react";
 import classnames from "classnames";
+import { throttle, Cancelable } from "lodash";
 import SkillContext from "../context/SkillContext";
 import { LOCKED_STATE, UNLOCKED_STATE, SELECTED_STATE } from "./constants";
 import Tooltip from "./Tooltip";
@@ -20,6 +21,7 @@ interface Props {
 interface State {
   currentState: string;
   showTooltip: boolean;
+  parentPosition: ParentPosition;
 }
 
 interface Context {
@@ -31,23 +33,41 @@ interface Context {
 class SkillNode extends React.Component<Props, State> {
   static contextType = SkillContext;
   private skillNodeRef: React.RefObject<HTMLDivElement>;
-
-  private parentPosition: ParentPosition = {
-    bottom: 0,
-    center: 0
-  };
+  private throttledResize: (() => void) & Cancelable;
 
   constructor(props: Props, context: Context) {
     super(props);
 
     const skillState = context.skills[props.id];
     this.skillNodeRef = React.createRef();
+    this.throttledResize = throttle(this.handleResize, 200);
 
     this.state = {
       currentState: skillState,
-      showTooltip: false
+      showTooltip: false,
+      parentPosition: {
+        bottom: 0,
+        center: 0
+      }
     };
   }
+
+  handleResize = () => {
+    const {
+      bottom,
+      left,
+      right
+    } = this.skillNodeRef.current!.getBoundingClientRect();
+
+    const scrollY = window.scrollY;
+
+    this.setState({
+      parentPosition: {
+        bottom: bottom + scrollY,
+        center: (right - left) / 2 + left
+      }
+    });
+  };
 
   handleClick = () => {
     const { currentState } = this.state;
@@ -78,16 +98,26 @@ class SkillNode extends React.Component<Props, State> {
       right
     } = this.skillNodeRef.current!.getBoundingClientRect();
 
-    this.parentPosition = {
-      bottom,
-      center: (right - left) / 2 + left
-    };
+    const scrollY = window.scrollY;
+
+    this.setState({
+      parentPosition: {
+        bottom: bottom + scrollY,
+        center: (right - left) / 2 + left
+      }
+    });
+
+    window.addEventListener("resize", this.throttledResize);
 
     if (this.props.parentNodeId) {
       return this.updateState(LOCKED_STATE);
     }
 
     return this.updateState(UNLOCKED_STATE);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.throttledResize);
   }
 
   componentDidUpdate() {
@@ -111,7 +141,7 @@ class SkillNode extends React.Component<Props, State> {
   }
 
   render() {
-    const { currentState, showTooltip } = this.state;
+    const { currentState, showTooltip, parentPosition } = this.state;
     const {
       icon,
       childData,
@@ -160,7 +190,7 @@ class SkillNode extends React.Component<Props, State> {
               return (
                 <SkillTreeSegment
                   key={skill.id}
-                  parentPosition={this.parentPosition}
+                  parentPosition={parentPosition}
                   skill={skill}
                   parentNodeId={id}
                 />

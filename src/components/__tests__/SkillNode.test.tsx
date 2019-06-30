@@ -1,8 +1,15 @@
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { render, fireEvent, cleanup, act } from "@testing-library/react";
 import SkillNode from "../SkillNode";
 import { BarbellIcon } from "../../icons";
 import { Skill } from "../../models";
+import { simpleTreeData } from "../../data/skillTreeData";
+
+function fireResize(width: number) {
+  // @ts-ignore
+  window.innerWidth = width;
+  window.dispatchEvent(new Event("resize"));
+}
 
 function renderComponent(childData: Skill[] = []) {
   return render(
@@ -57,5 +64,17 @@ describe("SkillNode component", () => {
     expect(queryByText("Hey there")).toBeNull();
     expect(queryByText("Description")).toBeNull();
   });
+
+  it("should handle resizing of the window correctly", () => {
+    const resizeEvent = document.createEvent("Event");
+    resizeEvent.initEvent("resize", true, true);
+
+    renderComponent(simpleTreeData);
+
+    // empty until i can work out how to attach the renderedComponnet to the DOM
+    // otherwise getBoundingClientRect() always returns 0.
+    act(() => {
+      fireResize(400);
+    });
+  });
 });
- 

@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { throttle, Cancelable } from "lodash";
 import SkillNode from "./SkillNode";
 import SkillEdge from "./SkillEdge";
 import { Skill, ParentPosition, ChildPosition } from "../models";
@@ -9,22 +10,38 @@ interface Props {
   parentNodeId?: string;
 }
 
+const defaultParentPosition: ChildPosition = {
+  top: 0,
+  center: 0
+};
+
 function SkillTreeSegment({ skill, parentNodeId, parentPosition }: Props) {
+  const [childPosition, setChildPosition] = useState(defaultParentPosition);
   const skillNodeRef: React.MutableRefObject<HTMLDivElement | null> = useRef(
     null
   );
 
-  const childPosition: React.MutableRefObject<ChildPosition> = useRef({
-    top: 0,
-    center: 0
-  });
-
   useEffect(() => {
-    const { top, left, width } = skillNodeRef.current!.getBoundingClientRect();
+    function handleResize() {
+      const {
+        top,
+        left,
+        width
+      } = skillNodeRef.current!.getBoundingClientRect();
 
-    childPosition.current = {
-      top,
-      center: left + width / 2
+      const scrollY = window.scrollY;
+
+      setChildPosition({
+        top: top + scrollY,
+        center: left + width / 2
+      });
+    }
+
+    window.addEventListener("resize", throttle(handleResize, 250));
+    handleResize();
+
+    return function cleanup() {
+      window.removeEventListener("resize", throttle(handleResize));
     };
   }, []);
 
@@ -35,8 +52,8 @@ function SkillTreeSegment({ skill, parentNodeId, parentPosition }: Props) {
           position={{
             topX: parentPosition.center,
             topY: parentPosition.bottom,
-            bottomX: childPosition.current.center,
-            bottomY: childPosition.current.top
+            bottomX: childPosition.center,
+            bottomY: childPosition.top
           }}
           nextNodeId={skill.id}
         />

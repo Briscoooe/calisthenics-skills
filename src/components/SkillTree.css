@@ -1,4 +1,15 @@
+.SkillTree__container {
+  margin: 0 8px;
+}
+
 .SkillTree {
+  border: 1px solid white;
+  border-radius: 4px;
   display: flex;
+  padding: 32px 0;
   justify-content: center;
+}
+
+.SkillTree__title {
+  min-height: 56px;
 }

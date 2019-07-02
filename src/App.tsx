@@ -29,7 +29,7 @@ function App() {
         </li>
       </NavBar>
       <header className="App__header">
-        <Icon src={MapIcon} title="header map icon." containerWidth={250} />
+        <Icon src={MapIcon} title="header map icon." containerWidth={200} />
         <h1>Skill Tree Demo</h1>
       </header>
       <section className="App__body">

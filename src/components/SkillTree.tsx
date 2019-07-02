@@ -15,8 +15,8 @@ const defaultParentPosition = {
 
 function SkillTree({ data, title }: Props) {
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className="SkillTree__container">
+      <h2 className="SkillTree__title">{title}</h2>
       <div className="SkillTree">
         {data.map(skill => {
           return (

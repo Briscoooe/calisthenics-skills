@@ -1,3 +1,5 @@
+import { Nullable } from "./utils";
+
 export type Skill = {
   id: string;
   icon: string;
@@ -17,6 +19,6 @@ export type ChildPosition = {
 };
 
 export interface ContextStorage {
-  getItem: (key: string) => string | null;
+  getItem: (key: string) => Nullable<string>;
   setItem: (key: string, value: string) => void;
 }

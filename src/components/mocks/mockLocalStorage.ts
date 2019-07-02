@@ -1,4 +1,4 @@
-import { Dictionary } from "../../models/utils";
+import { Dictionary, Nullable } from "../../models/utils";
 
 type Store = Dictionary<string>;
 
@@ -9,7 +9,7 @@ class MockLocalStorage {
     this.store = defaultStore;
   }
 
-  getItem(key: string): string | null {
+  getItem(key: string): Nullable<string> {
     return this.store[key];
   }
 

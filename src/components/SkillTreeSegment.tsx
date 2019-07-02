@@ -3,6 +3,7 @@ import { throttle } from "lodash";
 import SkillNode from "./SkillNode";
 import SkillEdge from "./SkillEdge";
 import { Skill, ParentPosition, ChildPosition } from "../models";
+import { Nullable } from "../models/utils";
 
 interface Props {
   skill: Skill;
@@ -21,7 +22,7 @@ const SkillTreeSegment = React.memo(function({
   parentPosition
 }: Props) {
   const [childPosition, setChildPosition] = useState(defaultParentPosition);
-  const skillNodeRef: React.MutableRefObject<HTMLDivElement | null> = useRef(
+  const skillNodeRef: React.MutableRefObject<Nullable<HTMLDivElement>> = useRef(
     null
   );
 

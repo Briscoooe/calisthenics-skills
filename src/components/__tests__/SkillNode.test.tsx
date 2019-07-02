@@ -3,7 +3,7 @@ import { render, fireEvent, cleanup, act } from "@testing-library/react";
 import SkillNode from "../SkillNode";
 import { BarbellIcon } from "../../icons";
 import { Skill } from "../../models";
-import { simpleTreeData } from "../../data/skillTreeData";
+import { horizontalPullBackData } from "../../data/skillTreeData";
 
 function fireResize(width: number) {
   // @ts-ignore
@@ -69,7 +69,7 @@ describe("SkillNode component", () => {
     const resizeEvent = document.createEvent("Event");
     resizeEvent.initEvent("resize", true, true);
 
-    renderComponent(simpleTreeData);
+    renderComponent(horizontalPullBackData);
 
     // empty until i can work out how to attach the renderedComponnet to the DOM
     // otherwise getBoundingClientRect() always returns 0.

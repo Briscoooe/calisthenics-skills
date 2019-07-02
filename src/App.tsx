@@ -18,19 +18,19 @@ const App: React.FC = () => {
         <h1>Skill Tree Demo</h1>
       </header>
       <section className="App__body">
-        <SkillProvider>
+        <SkillProvider contextId="hpb" storage={localStorage}>
           <SkillTree
             title="Horizontal Pull Back"
             data={horizontalPullBackData}
           />
         </SkillProvider>
-        <SkillProvider>
+        <SkillProvider contextId="hpf" storage={localStorage}>
           <SkillTree
             title="Horizontal Pull Front"
             data={horizontalPullFrontData}
           />
         </SkillProvider>
-        <SkillProvider>
+        <SkillProvider contextId="lp" storage={localStorage}>
           <SkillTree title="Legs Pull" data={legPullData} />
         </SkillProvider>
       </section>

@@ -2,6 +2,8 @@ import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import SkillEdge from "../SkillEdge";
 import SkillContext, { SkillProvider } from "../../context/SkillContext";
+import MockLocalStorage from "../mocks/mockLocalStorage";
+import uuid4 from "uuid/v4";
 
 interface Props {
   startingState: string;
@@ -29,8 +31,16 @@ class ContextSetter extends React.Component<Props> {
 function renderComponent(nextNodeId: string, startingState: string) {
   let updateState: Function | void;
 
+  const id = uuid4();
+
+  const defaultStoreContents = {
+    [`skills-${id}`]: JSON.stringify({})
+  };
+
+  const store = new MockLocalStorage(defaultStoreContents);
+
   const api = render(
-    <SkillProvider>
+    <SkillProvider contextId={id} storage={store}>
       <ContextSetter startingState={startingState} startingId={nextNodeId} />
       <SkillEdge
         position={{ topX: 0, topY: 0, bottomX: 0, bottomY: 0 }}

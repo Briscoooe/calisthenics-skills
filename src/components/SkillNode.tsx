@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { throttle, Cancelable } from "lodash";
+import { throttle, Cancelable, isEmpty } from "lodash";
 import SkillContext from "../context/SkillContext";
 import { LOCKED_STATE, UNLOCKED_STATE, SELECTED_STATE } from "./constants";
 import Tooltip from "./Tooltip";
@@ -100,11 +100,13 @@ class SkillNode extends React.Component<Props, State> {
 
     window.addEventListener("resize", this.throttledResize);
 
-    if (this.props.parentNodeId) {
-      return this.updateState(LOCKED_STATE);
-    }
+    if (isEmpty(this.context.skills)) {
+      if (this.props.parentNodeId) {
+        return this.updateState(LOCKED_STATE);
+      }
 
-    return this.updateState(UNLOCKED_STATE);
+      return this.updateState(UNLOCKED_STATE);
+    }
   }
 
   componentWillUnmount() {

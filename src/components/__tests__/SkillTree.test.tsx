@@ -3,6 +3,12 @@ import { render, fireEvent, cleanup } from "@testing-library/react";
 import wait from "waait";
 import SkillTree from "../SkillTree";
 import { SkillProvider } from "../../context/SkillContext";
+import MockLocalStorage from "../mocks/mockLocalStorage";
+import uuid4 from "uuid/v4";
+
+type Skills = {
+  [key: string]: string;
+};
 
 const mockSkillTreeData = [
   {
@@ -33,9 +39,17 @@ const mockSkillTreeData = [
   }
 ];
 
-function renderComponent() {
+function renderComponent(defaultSkills: Skills = {}) {
+  const id = uuid4();
+
+  const defaultStoreContents = {
+    [`skills-${id}`]: JSON.stringify(defaultSkills)
+  };
+
+  const store = new MockLocalStorage(defaultStoreContents);
+
   return render(
-    <SkillProvider>
+    <SkillProvider contextId={id} storage={store}>
       <SkillTree title="borderlands" data={mockSkillTreeData} />
     </SkillProvider>
   );
@@ -118,5 +132,23 @@ describe("SkillTree", () => {
 
     expect(middleSkillNode).not.toHaveClass("SkillNode SkillNode--selected");
     expect(middleSkillNode).not.toHaveStyle(`background-color: #f44336`);
+  });
+
+  it("should load the correct skills that are saved to localstorage", () => {
+    const defaultSkills = {
+      "item-one": "selected",
+      "item-two": "unlocked",
+      "item-three": "locked"
+    };
+
+    const { getByTestId } = renderComponent(defaultSkills);
+
+    const topSkillNode = getByTestId("item-one");
+    const middleSkillNode = getByTestId("item-two");
+    const bottomSkillNode = getByTestId("item-three");
+
+    expect(topSkillNode).toHaveClass("SkillNode SkillNode--selected");
+    expect(middleSkillNode).toHaveClass("SkillNode SkillNode--unlocked");
+    expect(bottomSkillNode).toHaveClass("SkillNode SkillNode--locked");
   });
 });

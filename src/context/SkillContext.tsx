@@ -1,4 +1,5 @@
 import * as React from "react";
+import { ContextStorage } from "../models";
 
 interface State {
   skills: Skills;
@@ -7,6 +8,12 @@ interface State {
 interface ISkillContext {
   skills: Skills;
   updateSkillState: (key: string, updatedState: string) => void;
+  contextId: string;
+}
+
+interface Props {
+  contextId: string;
+  storage: ContextStorage;
 }
 
 interface Skills {
@@ -15,21 +22,34 @@ interface Skills {
 
 const SkillContext = React.createContext<ISkillContext>({
   skills: {},
-  updateSkillState: () => undefined
+  updateSkillState: () => undefined,
+  contextId: ""
 });
 
-export class SkillProvider extends React.Component<{}, State> {
-  state = {
-    skills: {}
-  };
+export class SkillProvider extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      skills:
+        JSON.parse(props.storage.getItem(`skills-${props.contextId}`)!) || {}
+    };
+  }
 
   updateSkillState = (key: string, updatedState: string): void => {
     this.setState((prevState: State) => {
+      const updatedSkills = {
+        ...prevState.skills,
+        [key]: updatedState
+      };
+
+      this.props.storage.setItem(
+        `skills-${this.props.contextId}`,
+        JSON.stringify(updatedSkills)
+      );
+
       return {
-        skills: {
-          ...prevState.skills,
-          [key]: updatedState
-        }
+        skills: updatedSkills
       };
     });
   };
@@ -39,7 +59,8 @@ export class SkillProvider extends React.Component<{}, State> {
       <SkillContext.Provider
         value={{
           skills: this.state.skills,
-          updateSkillState: this.updateSkillState
+          updateSkillState: this.updateSkillState,
+          contextId: this.props.contextId
         }}
       >
         {this.props.children}

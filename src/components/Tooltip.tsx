@@ -4,17 +4,14 @@ import "./Tooltip.css";
 import HSeparator from "./ui/HSeparator";
 import { getIsElementInWindow } from "../helpers";
 
-interface Props {
-  tooltipTitle?: string;
-  tooltipDescription?: string;
-}
+type Props = typeof Tooltip.defaultProps
 
 interface State {
   isElementInWindow: boolean;
 }
 
 class Tooltip extends React.Component<Props, State> {
-  static defaultProps: Props = {
+  static defaultProps = {
     tooltipTitle: "Title",
     tooltipDescription: "Some information"
   };

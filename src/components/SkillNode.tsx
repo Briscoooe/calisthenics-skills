@@ -8,6 +8,7 @@ import Icon from "./ui/Icon";
 import "./SkillNode.css";
 import SkillTreeSegment from "./SkillTreeSegment";
 import { Skill, ParentPosition } from "../models";
+import { Dictionary } from "../models/utils";
 
 interface Props {
   id: string;
@@ -25,9 +26,7 @@ interface State {
 }
 
 interface Context {
-  skills: {
-    [key: string]: string;
-  };
+  skills: Dictionary<string>; 
 }
 
 class SkillNode extends React.Component<Props, State> {

@@ -9,10 +9,25 @@ import {
 } from "./data/skillTreeData";
 import Icon from "./components/ui/Icon";
 import { MapIcon } from "./icons";
+import NavBar from "./components/ui/NavBar";
 
-const App: React.FC = () => {
+function App() {
   return (
     <div className="App">
+      <NavBar>
+        <li>
+          <a href="https://github.com/andrico1234">Github</a>
+        </li>
+        <li>
+          <a href="https://www.buymeacoffee.com/1tsB7E9fL">Coffee</a>
+        </li>
+        <li>
+          <a href="https://andri.co">Website</a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/andricokaroulla/">Instagram</a>
+        </li>
+      </NavBar>
       <header className="App__header">
         <Icon src={MapIcon} title="header map icon." containerWidth={250} />
         <h1>Skill Tree Demo</h1>
@@ -36,6 +51,6 @@ const App: React.FC = () => {
       </section>
     </div>
   );
-};
+}
 
 export default App;

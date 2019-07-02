@@ -1,6 +1,6 @@
-interface Store {
-  [key: string]: string;
-}
+import { Dictionary } from "../../models/utils";
+
+type Store = Dictionary<string>;
 
 class MockLocalStorage {
   private store: Store;

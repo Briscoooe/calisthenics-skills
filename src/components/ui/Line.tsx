@@ -1,9 +1,8 @@
 import React from "react";
+import { Dictionary } from "../../models/utils";
 
 interface LineProps {
-  dataAttrs: {
-    [key: string]: string;
-  };
+  dataAttrs: Dictionary<string> 
   bottomX: number;
   bottomY: number;
   topX: number;

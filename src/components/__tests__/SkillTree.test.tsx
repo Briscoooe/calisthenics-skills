@@ -1,14 +1,12 @@
 import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
-import wait from "waait";
 import SkillTree from "../SkillTree";
 import { SkillProvider } from "../../context/SkillContext";
 import MockLocalStorage from "../mocks/mockLocalStorage";
 import uuid4 from "uuid/v4";
+import { Dictionary } from "../../models/utils";
 
-type Skills = {
-  [key: string]: string;
-};
+type Skills = Dictionary<string>;
 
 const mockSkillTreeData = [
   {
@@ -71,8 +69,6 @@ describe("SkillTree", () => {
 
     fireEvent.click(topSkillNode);
 
-    await wait(0);
-
     expect(topSkillNode).toHaveClass("SkillNode SkillNode--selected");
   });
 
@@ -83,13 +79,9 @@ describe("SkillTree", () => {
 
     fireEvent.click(topSkillNode);
 
-    await wait(0);
-
     expect(topSkillNode).toHaveClass("SkillNode SkillNode--selected");
 
     fireEvent.click(topSkillNode);
-
-    await wait(0);
 
     expect(topSkillNode).toHaveClass("SkillNode");
     expect(topSkillNode).not.toHaveClass("SkillNode SkillNode--selected");
@@ -104,19 +96,13 @@ describe("SkillTree", () => {
 
     fireEvent.click(topSkillNode);
 
-    await wait(0);
-
     expect(topSkillNode).toHaveClass("SkillNode SkillNode--selected");
 
     fireEvent.click(middleSkillNode);
 
-    await wait(0);
-
     expect(middleSkillNode).toHaveClass("SkillNode SkillNode--selected");
 
     fireEvent.click(bottomSkillNode);
-
-    await wait(0);
 
     expect(bottomSkillNode).toHaveClass("SkillNode SkillNode--selected");
   });
@@ -127,8 +113,6 @@ describe("SkillTree", () => {
     const middleSkillNode = getByTestId("item-two");
 
     fireEvent.click(middleSkillNode);
-
-    await wait(0);
 
     expect(middleSkillNode).not.toHaveClass("SkillNode SkillNode--selected");
     expect(middleSkillNode).not.toHaveStyle(`background-color: #f44336`);

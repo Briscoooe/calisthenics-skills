@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ContextStorage } from "../models";
+import { Dictionary } from "../models/utils";
 
 interface State {
   skills: Skills;
@@ -16,9 +17,7 @@ interface Props {
   storage: ContextStorage;
 }
 
-interface Skills {
-  [key: string]: string;
-}
+type Skills = Dictionary<string>
 
 const SkillContext = React.createContext<ISkillContext>({
   skills: {},

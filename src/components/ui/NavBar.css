@@ -1,0 +1,44 @@
+.NavBar {
+  flex-direction: row;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.NavBar__list {
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px;
+}
+
+.NavBar__list li {
+  color: white;
+  padding: 0 4px;
+  list-style: none;
+  position: relative;
+  right: 0;
+  transition: all 0.3s ease-in;
+}
+
+.NavBar__list li:after {
+  border-bottom: 1px solid white;
+  content: "";
+  display: block;
+  transition: width 0.3s ease-in;
+  width: 0;
+}
+
+.NavBar__list--hidden li {
+  right: -300px;
+}
+
+.NavBar__list li:hover:after {
+  width: 100%;
+}
+
+.NavBar__list li a {
+  color: white;
+  text-decoration: none;
+  transition: border-bottom-width 0.6s;
+}

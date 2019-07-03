@@ -59,11 +59,12 @@ class SkillNode extends React.Component<Props, State> {
     } = this.skillNodeRef.current!.getBoundingClientRect();
 
     const scrollY = window.scrollY;
+    const scrollX = window.scrollX;
 
     this.setState({
       parentPosition: {
         bottom: bottom + scrollY,
-        center: (right - left) / 2 + left
+        center: (right - left) / 2 + left + scrollX,
       }
     });
   };

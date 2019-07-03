@@ -35,10 +35,11 @@ const SkillTreeSegment = React.memo(function({
       } = skillNodeRef.current!.getBoundingClientRect();
 
       const scrollY = window.scrollY;
+      const scrollX = window.scrollX;
 
       setChildPosition({
         top: top + scrollY,
-        center: left + width / 2
+        center: left + width / 2 + scrollX
       });
     }
 

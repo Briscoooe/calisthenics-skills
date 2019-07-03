@@ -26,7 +26,7 @@ interface State {
 }
 
 interface Context {
-  skills: Dictionary<string>; 
+  skills: Dictionary<string>;
 }
 
 class SkillNode extends React.Component<Props, State> {
@@ -164,17 +164,19 @@ class SkillNode extends React.Component<Props, State> {
           >
             <Icon title="node-icon" src={icon} containerWidth={80} />
           </div>
-          {showTooltip && (
-            <div
-              onMouseEnter={() => this.setState({ showTooltip: true })}
-              onMouseLeave={() => this.setState({ showTooltip: false })}
-            >
-              <Tooltip
-                tooltipTitle={tooltipTitle}
-                tooltipDescription={tooltipDescription}
-              />
-            </div>
-          )}
+          <div className="SkillNode__tooltip-placeholder">
+            {showTooltip && (
+              <div
+                onMouseEnter={() => this.setState({ showTooltip: true })}
+                onMouseLeave={() => this.setState({ showTooltip: false })}
+              >
+                <Tooltip
+                  tooltipTitle={tooltipTitle}
+                  tooltipDescription={tooltipDescription}
+                />
+              </div>
+            )}
+          </div>
         </div>
         {childData.length > 0 && (
           <div className="children" style={{ display: "flex" }}>

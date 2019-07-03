@@ -102,6 +102,14 @@
   width: 75%;
 }
 
+.SkillNode__tooltip-placeholder {
+  height: 82px;
+  left: 108px;
+  position: absolute;
+  top: 0;
+  width: 344px;
+}
+
 @keyframes fadeout {
   from,
   30% {

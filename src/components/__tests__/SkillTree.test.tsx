@@ -1,12 +1,8 @@
 import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import SkillTree from "../SkillTree";
-import { SkillProvider } from "../../context/SkillContext";
 import MockLocalStorage from "../mocks/mockLocalStorage";
 import uuid4 from "uuid/v4";
-import { Dictionary } from "../../models/utils";
-
-type Skills = Dictionary<string>;
 
 const mockSkillTreeData = [
   {
@@ -37,33 +33,36 @@ const mockSkillTreeData = [
   }
 ];
 
-function renderComponent(defaultSkills: Skills = {}) {
-  const id = uuid4();
-
-  const defaultStoreContents = {
-    [`skills-${id}`]: JSON.stringify(defaultSkills)
-  };
-
-  const store = new MockLocalStorage(defaultStoreContents);
-
+function renderComponent(id: string) {
   return render(
-    <SkillProvider contextId={id} storage={store}>
-      <SkillTree title="borderlands" data={mockSkillTreeData} />
-    </SkillProvider>
+    <SkillTree id={id} title="borderlands" data={mockSkillTreeData} />
   );
 }
 
 describe("SkillTree", () => {
+  let currentId: string;
+
+  beforeEach(() => {
+    currentId = uuid4();
+
+    const defaultStoreContents = {
+      [`skills-${currentId}`]: JSON.stringify({})
+    };
+
+    // @ts-ignore
+    window.localStorage = new MockLocalStorage(defaultStoreContents);
+  });
+
   afterEach(cleanup);
 
   it("renders the correct number of SkillNodes", () => {
-    const { queryAllByTestId } = renderComponent();
+    const { queryAllByTestId } = renderComponent(currentId);
 
     expect(queryAllByTestId(/item-/).length).toBe(3);
   });
 
   it("should activate the first style on click", async () => {
-    const { getByTestId } = renderComponent();
+    const { getByTestId } = renderComponent(currentId);
 
     const topSkillNode = getByTestId("item-one");
 
@@ -73,7 +72,10 @@ describe("SkillTree", () => {
   });
 
   it("should deactivate the first style on secondclick", async () => {
-    const { getByTestId } = renderComponent();
+    const id = uuid4();
+    currentId = id;
+
+    const { getByTestId } = renderComponent(id);
 
     const topSkillNode = getByTestId("item-one");
 
@@ -88,7 +90,10 @@ describe("SkillTree", () => {
   });
 
   it("should successfully selected all nodes when clicked in succession", async () => {
-    const { getByTestId } = renderComponent();
+    const id = uuid4();
+    currentId = id;
+
+    const { getByTestId } = renderComponent(id);
 
     const topSkillNode = getByTestId("item-one");
     const middleSkillNode = getByTestId("item-two");
@@ -108,7 +113,10 @@ describe("SkillTree", () => {
   });
 
   it("should not select a node whose dependencies are not selected", async () => {
-    const { getByTestId } = renderComponent();
+    const id = uuid4();
+    currentId = id;
+
+    const { getByTestId } = renderComponent(id);
 
     const middleSkillNode = getByTestId("item-two");
 
@@ -125,7 +133,12 @@ describe("SkillTree", () => {
       "item-three": "locked"
     };
 
-    const { getByTestId } = renderComponent(defaultSkills);
+    window.localStorage.setItem(
+      `skills-${currentId}`,
+      JSON.stringify(defaultSkills)
+    );
+
+    const { getByTestId } = renderComponent(currentId);
 
     const topSkillNode = getByTestId("item-one");
     const middleSkillNode = getByTestId("item-two");

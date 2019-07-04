@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
-import { SkillProvider } from "./context/SkillContext";
 import SkillTree from "./components/SkillTree";
 import {
   legPullData,
   horizontalPullBackData,
-  horizontalPullFrontData
+  horizontalPullFrontData,
+  verticalPullData,
+  verticalPullAndPushData,
+  verticalPushDownData
 } from "./data/skillTreeData";
 import Icon from "./components/ui/Icon";
 import { MapIcon } from "./icons";
@@ -33,21 +35,28 @@ function App() {
         <h1>Skill Tree Demo</h1>
       </header>
       <section className="App__body">
-        <SkillProvider contextId="hpb" storage={localStorage}>
-          <SkillTree
-            title="Horizontal Pull Back"
-            data={horizontalPullBackData}
-          />
-        </SkillProvider>
-        <SkillProvider contextId="hpf" storage={localStorage}>
-          <SkillTree
-            title="Horizontal Pull Front"
-            data={horizontalPullFrontData}
-          />
-        </SkillProvider>
-        <SkillProvider contextId="lp" storage={localStorage}>
-          <SkillTree title="Legs Pull" data={legPullData} />
-        </SkillProvider>
+        <SkillTree
+          id="hbp"
+          title="Horizontal Pull Back"
+          data={horizontalPullBackData}
+        />
+        <SkillTree
+          id="hpf"
+          title="Horizontal Pull Front"
+          data={horizontalPullFrontData}
+        />
+        <SkillTree id="vp" title="Vertical Pull" data={verticalPullData} />
+        <SkillTree
+          id="vpp"
+          title="Vertical Pull And Push"
+          data={verticalPullAndPushData}
+        />
+        <SkillTree
+          id="vpd"
+          title="Vertical Push Down"
+          data={verticalPushDownData}
+        />
+        <SkillTree id="lp" title="Legs Pull" data={legPullData} />
       </section>
     </div>
   );

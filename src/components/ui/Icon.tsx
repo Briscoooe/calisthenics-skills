@@ -17,7 +17,12 @@ function Icon({ src, title, containerWidth }: Props) {
         display: "flex"
       }}
     >
-      <img src={src} alt={title} className="Icon" />
+      <img
+        style={{ pointerEvents: "none" }}
+        src={src}
+        alt={title}
+        className="Icon"
+      />
     </div>
   );
 }

@@ -2,12 +2,16 @@ import React from "react";
 import "./App.css";
 import SkillTree from "./components/SkillTree";
 import {
-  legPullData,
   horizontalPullBackData,
   horizontalPullFrontData,
   verticalPullData,
   verticalPullAndPushData,
-  verticalPushDownData
+  verticalPushDownData,
+  verticalPushUpData,
+  horizontalPushData,
+  coreData,
+  legsPushData,
+  legsPullData,
 } from "./data/skillTreeData";
 import Icon from "./components/ui/Icon";
 import { MapIcon } from "./icons";
@@ -56,7 +60,15 @@ function App() {
           title="Vertical Push Down"
           data={verticalPushDownData}
         />
-        <SkillTree id="lp" title="Legs Pull" data={legPullData} />
+        <SkillTree
+          id="vpu"
+          title="Vertical Push Up"
+          data={verticalPushUpData}
+        />
+        <SkillTree id="hp" title="Horizontal Push" data={horizontalPushData} />
+        <SkillTree id="c" title="Core" data={coreData} />
+        <SkillTree id="lps" title="Legs Push" data={legsPushData} />
+        <SkillTree id="lpl" title="Legs Pull" data={legsPullData} />
       </section>
     </div>
   );

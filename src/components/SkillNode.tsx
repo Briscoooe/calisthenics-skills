@@ -163,7 +163,7 @@ class SkillNode extends React.Component<Props, State> {
               "SkillNode--locked": currentState === LOCKED_STATE
             })}
           >
-            <Icon title="node-icon" src={icon} containerWidth={80} />
+            <Icon title="node-icon" src={icon} containerWidth={60} />
           </div>
           <div className="SkillNode__tooltip-placeholder">
             {showTooltip && (

@@ -11,14 +11,16 @@ function fireResize(width: number) {
   window.dispatchEvent(new Event("resize"));
 }
 
-function renderComponent(childData: Skill[] = []) {
+function renderComponent(children: Skill[] = []) {
   return render(
     <SkillNode
-      childData={childData}
-      id="test-node"
-      icon={BarbellIcon}
-      tooltipTitle="Hey there"
-      tooltipDescription="Description"
+      skill={{
+        children,
+        id: "test-node",
+        icon: BarbellIcon,
+        tooltipTitle: "Hey there",
+        tooltipDescription: "Description"
+      }}
     />
   );
 }

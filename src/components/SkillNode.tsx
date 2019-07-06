@@ -4,19 +4,15 @@ import { throttle, Cancelable, isEmpty } from "lodash";
 import SkillContext from "../context/SkillContext";
 import { LOCKED_STATE, UNLOCKED_STATE, SELECTED_STATE } from "./constants";
 import Tooltip from "./Tooltip";
-import Icon from "./ui/Icon";
 import "./SkillNode.css";
 import SkillTreeSegment from "./SkillTreeSegment";
 import { Skill, ParentPosition } from "../models";
 import { Dictionary } from "../models/utils";
+import IconNode from "./ui/IconNode";
 
 interface Props {
-  id: string;
-  childData: Skill[];
+  skill: Skill;
   parentNodeId?: string;
-  icon: string;
-  tooltipTitle?: string;
-  tooltipDescription?: string;
 }
 
 interface State {
@@ -33,11 +29,14 @@ class SkillNode extends React.Component<Props, State> {
   static contextType = SkillContext;
   private skillNodeRef: React.RefObject<HTMLDivElement>;
   private throttledResize: (() => void) & Cancelable;
+  private childWidth: number = 0;
 
   constructor(props: Props, context: Context) {
     super(props);
 
-    const skillState = context.skills[props.id];
+    const { id } = props.skill;
+
+    const skillState = context.skills[id];
     this.skillNodeRef = React.createRef();
     this.throttledResize = throttle(this.handleResize, 200);
 
@@ -64,7 +63,7 @@ class SkillNode extends React.Component<Props, State> {
     this.setState({
       parentPosition: {
         bottom: bottom + scrollY,
-        center: (right - left) / 2 + left + scrollX,
+        center: (right - left) / 2 + left + scrollX
       }
     });
   };
@@ -92,11 +91,12 @@ class SkillNode extends React.Component<Props, State> {
       currentState: state
     });
 
-    return this.context.updateSkillState(this.props.id, state);
+    return this.context.updateSkillState(this.props.skill.id, state);
   };
 
   componentDidMount() {
     this.calculatePosition();
+    this.childWidth = this.skillNodeRef.current!.clientWidth;
 
     window.addEventListener("resize", this.throttledResize);
 
@@ -135,13 +135,11 @@ class SkillNode extends React.Component<Props, State> {
 
   render() {
     const { currentState, showTooltip, parentPosition } = this.state;
-    const {
-      icon,
-      childData,
-      tooltipTitle,
-      tooltipDescription,
-      id
-    } = this.props;
+    const { children, tooltipTitle, tooltipDescription, id } = this.props.skill;
+
+    // SkillNode__overlay needs width depending on the prop
+    // SkillNode needs width depending on the prop
+    // Everything else remains the same
 
     return (
       <React.Fragment>
@@ -151,20 +149,19 @@ class SkillNode extends React.Component<Props, State> {
             "SkillNode__overlay--selected": currentState === SELECTED_STATE
           })}
         >
-          <div
-            onClick={this.handleClick}
-            ref={this.skillNodeRef}
-            data-testid={this.props.id}
-            onMouseEnter={() => this.setState({ showTooltip: true })}
-            onMouseLeave={() => this.setState({ showTooltip: false })}
-            className={classnames("SkillNode", {
-              "SkillNode--selected": currentState === SELECTED_STATE,
-              "SkillNode--unlocked": currentState === UNLOCKED_STATE,
-              "SkillNode--locked": currentState === LOCKED_STATE
-            })}
-          >
-            <Icon title="node-icon" src={icon} containerWidth={60} />
-          </div>
+          {"icon" in this.props.skill ? (
+            <IconNode
+              handleClick={this.handleClick}
+              handleMouseEnter={() => this.setState({ showTooltip: true })}
+              handleMouseLeave={() => this.setState({ showTooltip: false })}
+              id={id}
+              currentState={currentState}
+              skill={this.props.skill}
+              ref={this.skillNodeRef}
+            />
+          ) : (
+            <div ref={this.skillNodeRef}>Heyy there </div>
+          )}
           <div className="SkillNode__tooltip-placeholder">
             {showTooltip && (
               <div
@@ -179,9 +176,9 @@ class SkillNode extends React.Component<Props, State> {
             )}
           </div>
         </div>
-        {childData.length > 0 && (
+        {children.length > 0 && (
           <div className="children" style={{ display: "flex" }}>
-            {childData.map(skill => {
+            {children.map(skill => {
               return (
                 <SkillTreeSegment
                   key={skill.id}

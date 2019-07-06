@@ -1,8 +1,17 @@
 import { Nullable } from "./utils";
 
-export type Skill = {
+export type Skill = MajorSkill | MinorSkill;
+
+export type MajorSkill = {
   id: string;
   icon: string;
+  tooltipTitle?: string;
+  tooltipDescription?: string;
+  children: Skill[];
+};
+
+export type MinorSkill = {
+  id: string;
   tooltipTitle?: string;
   tooltipDescription?: string;
   children: Skill[];

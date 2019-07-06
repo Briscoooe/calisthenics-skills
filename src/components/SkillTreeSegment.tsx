@@ -65,14 +65,7 @@ const SkillTreeSegment = React.memo(function({
         />
       )}
       <div ref={skillNodeRef}>
-        <SkillNode
-          id={skill.id}
-          icon={skill.icon}
-          parentNodeId={parentNodeId}
-          tooltipTitle={skill.tooltipTitle}
-          tooltipDescription={skill.tooltipDescription}
-          childData={skill.children}
-        />
+        <SkillNode skill={skill} parentNodeId={parentNodeId} />
       </div>
     </div>
   );

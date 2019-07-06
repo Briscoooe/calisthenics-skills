@@ -4,6 +4,9 @@
   width: fit-content;
 }
 
+/* skill node overlay has width that would need to change */
+/* Skill node has width that would change */
+
 .SkillNode__overlay:before {
   background-color: white;
   border-radius: 4px;
@@ -28,7 +31,6 @@
   border-radius: 4px;
   cursor: pointer;
   display: flex;
-  height: 60px;
   margin: 0 24px;
   position: relative;
   transition: box-shadow 0.6s, opacity 1s;

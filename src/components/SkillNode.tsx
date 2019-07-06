@@ -137,7 +137,6 @@ class SkillNode extends React.Component<Props, State> {
     const { currentState, showTooltip, parentPosition } = this.state;
     const { children, tooltipTitle, tooltipDescription, id } = this.props.skill;
 
-    // SkillNode__overlay needs width depending on the prop
     // SkillNode needs width depending on the prop
     // Everything else remains the same
 
@@ -149,6 +148,12 @@ class SkillNode extends React.Component<Props, State> {
             "SkillNode__overlay--selected": currentState === SELECTED_STATE
           })}
         >
+          <span
+            style={{ width: this.childWidth + 4 }}
+            className={classnames("SkillNode__animation", {
+              "SkillNode__animation--selected": currentState === SELECTED_STATE
+            })}
+          />
           {"icon" in this.props.skill ? (
             <IconNode
               handleClick={this.handleClick}

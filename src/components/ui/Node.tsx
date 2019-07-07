@@ -44,7 +44,7 @@ const Node = React.forwardRef(
           </div>
         ) : (
           <div className="Node__text-node">
-            <p className="Node__text">{skill. title}</p>
+            <p className="Node__text">{skill.title}</p>
           </div>
         )}
       </div>

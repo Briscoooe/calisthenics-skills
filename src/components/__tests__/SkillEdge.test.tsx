@@ -108,47 +108,71 @@ describe("SkillEdge", () => {
       topX: 100,
       topY: 100,
       bottomX: 50,
-      bottomY: 150,
+      bottomY: 150
     };
 
     const rightAngledLinePosition = {
       topX: 100,
       topY: 100,
       bottomX: 150,
-      bottomY: 150,
-    }
+      bottomY: 150
+    };
 
     it("should be inactive if the next node is unlocked", async () => {
       const startingId = "123";
       const startingState = "unlocked";
 
-      const { getByTestId } = renderComponent(startingId, startingState, leftAngledLinePosition);
+      const { getByTestId } = renderComponent(
+        startingId,
+        startingState,
+        leftAngledLinePosition
+      );
 
-      const skillEdge = getByTestId("angled-line-one");
+      const skillEdgeOne = getByTestId("angled-line-one");
+      const skillEdgeTwo = getByTestId("angled-line-two");
+      const skillEdgeThree = getByTestId("angled-line-three");
 
-      expect(skillEdge).not.toHaveClass("AngledLine__line-one--active");
+      expect(skillEdgeOne).not.toHaveClass("AngledLine__line-one--active");
+      expect(skillEdgeTwo).not.toHaveClass("AngledLine__line-two--active");
+      expect(skillEdgeThree).not.toHaveClass("AngledLine__line-three--active");
     });
 
     it("should be inactive if the next node is locked", () => {
       const startingId = "123";
       const startingState = "unlocked";
 
-      const { getByTestId } = renderComponent(startingId, startingState, leftAngledLinePosition);
+      const { getByTestId } = renderComponent(
+        startingId,
+        startingState,
+        leftAngledLinePosition
+      );
 
-      const skillEdge = getByTestId("angled-line-one");
+      const skillEdgeOne = getByTestId("angled-line-one");
+      const skillEdgeTwo = getByTestId("angled-line-two");
+      const skillEdgeThree = getByTestId("angled-line-three");
 
-      expect(skillEdge).not.toHaveClass("AngledLine__line-one--active");
+      expect(skillEdgeOne).not.toHaveClass("AngledLine__line-one--active");
+      expect(skillEdgeTwo).not.toHaveClass("AngledLine__line-two--active");
+      expect(skillEdgeThree).not.toHaveClass("AngledLine__line-three--active");
     });
 
     it("should be active if the next node is selected", () => {
       const startingId = "123";
       const startingState = "selected";
 
-      const { getByTestId } = renderComponent(startingId, startingState, rightAngledLinePosition);
+      const { getByTestId } = renderComponent(
+        startingId,
+        startingState,
+        rightAngledLinePosition
+      );
 
-      const skillEdge = getByTestId("angled-line-one");
+      const skillEdgeOne = getByTestId("angled-line-one");
+      const skillEdgeTwo = getByTestId("angled-line-two");
+      const skillEdgeThree = getByTestId("angled-line-three");
 
-      expect(skillEdge).toHaveClass("AngledLine__line-one--active");
+      expect(skillEdgeOne).toHaveClass("AngledLine__line-one--active");
+      expect(skillEdgeTwo).toHaveClass("AngledLine__line-two--active");
+      expect(skillEdgeThree).toHaveClass("AngledLine__line-three--active");
     });
   });
 });

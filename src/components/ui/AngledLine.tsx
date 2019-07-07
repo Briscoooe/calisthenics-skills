@@ -49,6 +49,7 @@ function AngledLine({ position, direction, className, isActive }: Props) {
         }}
       />
       <div
+        data-testid="angled-line-two"
         className={classnames(
           `${className} AngledLine AngledLine--horizontal`,
           {
@@ -60,10 +61,11 @@ function AngledLine({ position, direction, className, isActive }: Props) {
         }
       />
       <div
+        data-testid="angled-line-three"
         className={classnames(`${className} AngledLine AngledLine--vertical`, {
           "AngledLine--rounded-top-left": direction === "right",
           "AngledLine--rounded-bottom-left": direction === "left",
-          "AngledLine__line-t--active": isActive
+          "AngledLine__line-three--active": isActive
         })}
         style={{
           top: `${topY + 24}px`,

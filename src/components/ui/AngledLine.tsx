@@ -1,6 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import "./AngledLine.css";
+import { Dictionary } from "../../models/utils";
 
 interface Props {
   position: {
@@ -11,9 +12,10 @@ interface Props {
   };
   className: string;
   direction: "left" | "right";
+  isActive: boolean;
 }
 
-function AngledLine({ position, direction, className }: Props) {
+function AngledLine({ position, direction, className, isActive }: Props) {
   const { topX, topY, bottomX } = position;
 
   // no one:
@@ -35,9 +37,11 @@ function AngledLine({ position, direction, className }: Props) {
   return (
     <React.Fragment>
       <div
+        data-testid="angled-line-one"
         className={classnames(`${className} AngledLine AngledLine--vertical`, {
           "AngledLine--rounded-bottom-right": direction === "right",
-          "AngledLine--rounded-top-right": direction === "left"
+          "AngledLine--rounded-top-right": direction === "left",
+          "AngledLine__line-one--active": isActive
         })}
         style={{
           top: `${topY - 1}px`,
@@ -46,7 +50,12 @@ function AngledLine({ position, direction, className }: Props) {
         }}
       />
       <div
-        className={`${className} AngledLine AngledLine--horizontal`}
+        className={classnames(
+          `${className} AngledLine AngledLine--horizontal`,
+          {
+            "AngledLine__line-two--active": isActive
+          }
+        )}
         style={
           direction === "left" ? leftHorizontalStyles : rightHorizontalStyles
         }
@@ -54,7 +63,8 @@ function AngledLine({ position, direction, className }: Props) {
       <div
         className={classnames(`${className} AngledLine AngledLine--vertical`, {
           "AngledLine--rounded-top-left": direction === "right",
-          "AngledLine--rounded-bottom-left": direction === "left"
+          "AngledLine--rounded-bottom-left": direction === "left",
+          "AngledLine__line-t--active": isActive
         })}
         style={{
           top: `${topY + 24}px`,

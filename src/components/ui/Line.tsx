@@ -2,7 +2,6 @@ import React from "react";
 import { Dictionary } from "../../models/utils";
 
 interface LineProps {
-  dataAttrs: Dictionary<string> 
   bottomX: number;
   bottomY: number;
   topX: number;
@@ -11,7 +10,6 @@ interface LineProps {
 }
 
 function Line({
-  dataAttrs,
   className,
   topX,
   topY,
@@ -27,7 +25,7 @@ function Line({
 
   return (
     <div
-      {...dataAttrs}
+      data-testid="straight-line"
       className={className}
       style={{
         border: "1px solid white",

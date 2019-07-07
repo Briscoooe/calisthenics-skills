@@ -28,7 +28,18 @@ class ContextSetter extends React.Component<Props> {
   }
 }
 
-function renderComponent(nextNodeId: string, startingState: string) {
+const defaultPosition = {
+  topX: 0,
+  topY: 0,
+  bottomX: 0,
+  bottomY: 0
+};
+
+function renderComponent(
+  nextNodeId: string,
+  startingState: string,
+  position = defaultPosition
+) {
   let updateState: Function | void;
 
   const id = uuid4();
@@ -42,10 +53,7 @@ function renderComponent(nextNodeId: string, startingState: string) {
   const api = render(
     <SkillProvider contextId={id} storage={store}>
       <ContextSetter startingState={startingState} startingId={nextNodeId} />
-      <SkillEdge
-        position={{ topX: 0, topY: 0, bottomX: 0, bottomY: 0 }}
-        nextNodeId={nextNodeId}
-      />
+      <SkillEdge position={position} nextNodeId={nextNodeId} />
     </SkillProvider>
   );
 
@@ -60,36 +68,87 @@ function renderComponent(nextNodeId: string, startingState: string) {
 describe("SkillEdge", () => {
   afterEach(cleanup);
 
-  it("should be inactive if the next node is unlocked", async () => {
-    const startingId = "123";
-    const startingState = "unlocked";
+  describe("straight lines", () => {
+    it("should be inactive if the next node is unlocked", async () => {
+      const startingId = "123";
+      const startingState = "unlocked";
 
-    const { getByTestId } = renderComponent(startingId, startingState);
+      const { getByTestId } = renderComponent(startingId, startingState);
 
-    const skillEdge = getByTestId("skill-edge");
+      const skillEdge = getByTestId("straight-line");
 
-    expect(skillEdge).not.toHaveClass("SkillEdge--active");
+      expect(skillEdge).not.toHaveClass("SkillEdge--active");
+    });
+
+    it("should be inactive if the next node is locked", () => {
+      const startingId = "123";
+      const startingState = "unlocked";
+
+      const { getByTestId } = renderComponent(startingId, startingState);
+
+      const skillEdge = getByTestId("straight-line");
+
+      expect(skillEdge).not.toHaveClass("SkillEdge--active");
+    });
+
+    it("should be active if the next node is selected", () => {
+      const startingId = "123";
+      const startingState = "selected";
+
+      const { getByTestId } = renderComponent(startingId, startingState);
+
+      const skillEdge = getByTestId("straight-line");
+
+      expect(skillEdge).toHaveClass("SkillEdge SkillEdge--active");
+    });
   });
 
-  it("should be inactive if the next node is locked", () => {
-    const startingId = "123";
-    const startingState = "unlocked";
+  describe("angled lines", () => {
+    const leftAngledLinePosition = {
+      topX: 100,
+      topY: 100,
+      bottomX: 50,
+      bottomY: 150,
+    };
 
-    const { getByTestId } = renderComponent(startingId, startingState);
+    const rightAngledLinePosition = {
+      topX: 100,
+      topY: 100,
+      bottomX: 150,
+      bottomY: 150,
+    }
 
-    const skillEdge = getByTestId("skill-edge");
+    it("should be inactive if the next node is unlocked", async () => {
+      const startingId = "123";
+      const startingState = "unlocked";
 
-    expect(skillEdge).not.toHaveClass("SkillEdge--active");
-  });
+      const { getByTestId } = renderComponent(startingId, startingState, leftAngledLinePosition);
 
-  it("should be active if the next node is selected", () => {
-    const startingId = "123";
-    const startingState = "selected";
+      const skillEdge = getByTestId("angled-line-one");
 
-    const { getByTestId } = renderComponent(startingId, startingState);
+      expect(skillEdge).not.toHaveClass("AngledLine__line-one--active");
+    });
 
-    const skillEdge = getByTestId("skill-edge");
+    it("should be inactive if the next node is locked", () => {
+      const startingId = "123";
+      const startingState = "unlocked";
 
-    expect(skillEdge).toHaveClass("SkillEdge SkillEdge--active");
+      const { getByTestId } = renderComponent(startingId, startingState, leftAngledLinePosition);
+
+      const skillEdge = getByTestId("angled-line-one");
+
+      expect(skillEdge).not.toHaveClass("AngledLine__line-one--active");
+    });
+
+    it("should be active if the next node is selected", () => {
+      const startingId = "123";
+      const startingState = "selected";
+
+      const { getByTestId } = renderComponent(startingId, startingState, rightAngledLinePosition);
+
+      const skillEdge = getByTestId("angled-line-one");
+
+      expect(skillEdge).toHaveClass("AngledLine__line-one--active");
+    });
   });
 });

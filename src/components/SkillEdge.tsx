@@ -26,7 +26,6 @@ function SkillEdge({ nextNodeId, position }: Props) {
       <div className="SkillEdge__container">
         <Line
           {...position}
-          dataAttrs={{ "data-testid": "skill-edge" }}
           className={classnames("SkillEdge", {
             "SkillEdge--active": isActive,
             "SkillEdge--unlocked": isUnlocked
@@ -39,6 +38,7 @@ function SkillEdge({ nextNodeId, position }: Props) {
   return (
     <div className="SkillEdge__container">
       <AngledLine
+        isActive={isActive}
         position={position}
         direction={position.topX < position.bottomX ? "right" : "left"}
         className={classnames("SkillEdge", {

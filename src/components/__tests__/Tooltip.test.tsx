@@ -8,7 +8,7 @@ jest.mock("../../helpers", () => ({
 }));
 
 function renderComponent() {
-  return render(<Tooltip />);
+  return render(<Tooltip handleMouseEnter={() => null} handleMouseLeave={() => null} />);
 }
 
 describe("Tooltip component", () => {

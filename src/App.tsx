@@ -5,13 +5,12 @@ import {
   horizontalPullBackData,
   horizontalPullFrontData,
   verticalPullData,
-  verticalPullAndPushData,
   verticalPushDownData,
   verticalPushUpData,
   horizontalPushData,
   coreData,
   legsPushData,
-  legsPullData,
+  legsPullData
 } from "./data/skillTreeData";
 import Icon from "./components/ui/Icon";
 import { MapIcon } from "./icons";
@@ -50,11 +49,6 @@ function App() {
           data={horizontalPullFrontData}
         />
         <SkillTree id="vp" title="Vertical Pull" data={verticalPullData} />
-        <SkillTree
-          id="vpp"
-          title="Vertical Pull And Push"
-          data={verticalPullAndPushData}
-        />
         <SkillTree
           id="vpd"
           title="Vertical Push Down"

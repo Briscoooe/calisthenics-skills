@@ -1,10 +1,10 @@
-.SkillNode__overlay {
+.SkillNode {
   margin: 0 auto;
   position: relative;
   width: fit-content;
 }
 
-.SkillNode__animation {
+.SkillNode__overlay {
   background-color: white;
   border-radius: 4px;
   height: 100%;
@@ -12,85 +12,11 @@
   opacity: 0;
   pointer-events: none;
   position: absolute;
-   z-index: 10;
+  z-index: 10;
 }
 
-.SkillNode__animation--selected {
+.SkillNode__overlay--selected {
   animation: fadeout 3.5s 1;
-}
-
-.SkillNode {
-  background: #282c34;
-  border: 2px solid white;
-  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0);
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  margin: 0 24px;
-  position: relative;
-  transition: box-shadow 0.6s, opacity 1s;
-  user-select: none;
-  width: 60px;
-}
-
-.SkillNode--locked {
-  cursor: initial;
-  opacity: 0.5;
-}
-
-.SkillNode--unlocked {
-  animation: shadowpulse 1s infinite alternate;
-  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.5);
-}
-
-.SkillNode--unlocked:hover {
-  animation: none;
-  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 1);
-}
-
-.SkillNode--unlocked:after,
-.SkillNode--unlocked:before {
-  border: 0 solid;
-  border-image-source: linear-gradient(
-    to right,
-    #d0e6a5 0%,
-    #86e3ce 50%,
-    #ccabd8 100%
-  );
-  border-image-slice: 1;
-  content: " ";
-  opacity: 0;
-  height: 0;
-  transition: opacity 0.6s, width 0.6s, height 0.6s;
-  position: absolute;
-  width: 0;
-}
-
-.SkillNode--unlocked:after {
-  border-top: 4px solid;
-  border-left: 4px solid;
-  top: 0;
-  left: 0;
-}
-
-.SkillNode--unlocked:before {
-  bottom: 0px;
-  right: 0px;
-  border-bottom: 4px solid;
-  border-right: 4px solid;
-}
-
-.SkillNode--unlocked:hover:before,
-.SkillNode--unlocked:hover:after {
-  opacity: 1;
-  height: 95%;
-  width: 95%;
-  transition: width 0.6s, height 0.6s;
-}
-
-.SkillNode--selected {
-  animation: shadowburst 1s 1;
-  background: linear-gradient(to right, #d0e6a5 0%, #86e3ce 50%, #ccabd8 100%);
 }
 
 .SkillNode__icon {
@@ -105,40 +31,4 @@
   position: absolute;
   top: 0;
   width: 344px;
-}
-
-@keyframes fadeout {
-  from,
-  30% {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes shadowpulse {
-  from,
-  20% {
-    box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.5);
-  }
-
-  to {
-    box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.5);
-  }
-}
-
-@keyframes shadowburst {
-  from {
-    box-shadow: 0 0 18px 0 rgba(255, 255, 255, 1);
-  }
-
-  20% {
-    box-shadow: 0 0 24px 0 rgba(255, 255, 255, 1);
-  }
-
-  to {
-    box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0);
-  }
 }

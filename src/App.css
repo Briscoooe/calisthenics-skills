@@ -18,3 +18,50 @@
   justify-content: center;
   min-width: fit-content;
 }
+
+@keyframes fadeout {
+  from,
+  30% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slidedown {
+  from,
+  50% {
+    background-position: right top;
+  }
+
+  to {
+    background-position: left bottom;
+  }
+}
+
+@keyframes shadowpulse {
+  from,
+  20% {
+    box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  to {
+    box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes shadowburst {
+  from {
+    box-shadow: 0 0 18px 0 rgba(255, 255, 255, 1);
+  }
+
+  20% {
+    box-shadow: 0 0 24px 0 rgba(255, 255, 255, 1);
+  }
+
+  to {
+    box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0);
+  }
+}

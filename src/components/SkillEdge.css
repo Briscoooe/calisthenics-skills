@@ -25,14 +25,3 @@
   animation: slidedown 1.2s 1 ease-out;
   background-position: left bottom;
 }
-
-@keyframes slidedown {
-  from,
-  50% {
-    background-position: right top;
-  }
-
-  to {
-    background-position: left bottom;
-  }
-}

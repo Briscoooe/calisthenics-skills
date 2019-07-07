@@ -8,7 +8,7 @@ import "./SkillNode.css";
 import SkillTreeSegment from "./SkillTreeSegment";
 import { Skill, ParentPosition } from "../models";
 import { Dictionary } from "../models/utils";
-import IconNode from "./ui/IconNode";
+import Node from "./ui/Node";
 
 interface Props {
   skill: Skill;
@@ -137,36 +137,25 @@ class SkillNode extends React.Component<Props, State> {
     const { currentState, showTooltip, parentPosition } = this.state;
     const { children, tooltipTitle, tooltipDescription, id } = this.props.skill;
 
-    // SkillNode needs width depending on the prop
-    // Everything else remains the same
-
     return (
       <React.Fragment>
-        <div
-          data-testid="skill-node"
-          className={classnames("SkillNode__overlay", {
-            "SkillNode__overlay--selected": currentState === SELECTED_STATE
-          })}
-        >
+        <div className="SkillNode">
           <span
             style={{ width: this.childWidth + 4 }}
-            className={classnames("SkillNode__animation", {
-              "SkillNode__animation--selected": currentState === SELECTED_STATE
+            className={classnames("SkillNode__overlay", {
+              "SkillNode__overlay--selected": currentState === SELECTED_STATE
             })}
           />
-          {"icon" in this.props.skill ? (
-            <IconNode
-              handleClick={this.handleClick}
-              handleMouseEnter={() => this.setState({ showTooltip: true })}
-              handleMouseLeave={() => this.setState({ showTooltip: false })}
-              id={id}
-              currentState={currentState}
-              skill={this.props.skill}
-              ref={this.skillNodeRef}
-            />
-          ) : (
-            <div ref={this.skillNodeRef}>Heyy there </div>
-          )}
+          <Node
+            handleClick={this.handleClick}
+            handleMouseEnter={() => this.setState({ showTooltip: true })}
+            handleMouseLeave={() => this.setState({ showTooltip: false })}
+            id={id}
+            currentState={currentState}
+            skill={this.props.skill}
+            ref={this.skillNodeRef}
+          />
+          {/* move the rest of this tooltip into its own component */}
           <div className="SkillNode__tooltip-placeholder">
             {showTooltip && (
               <div
@@ -181,8 +170,9 @@ class SkillNode extends React.Component<Props, State> {
             )}
           </div>
         </div>
+        {/* move these styles into the css file */}
         {children.length > 0 && (
-          <div className="children" style={{ display: "flex" }}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             {children.map(skill => {
               return (
                 <SkillTreeSegment

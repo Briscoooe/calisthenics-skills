@@ -132,7 +132,7 @@ class SkillNode extends React.Component<Props, State> {
       return this.updateState(UNLOCKED_STATE);
     }
   }
-
+ 
   render() {
     const { currentState, showTooltip, parentPosition } = this.state;
     const { children, tooltipTitle, tooltipDescription, id } = this.props.skill;

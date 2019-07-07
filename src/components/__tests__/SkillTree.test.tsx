@@ -21,7 +21,6 @@ const mockSkillTreeData = [
         children: [
           {
             id: "item-three",
-            icon: "./222",
             tooltipDescription:
               "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
             tooltipTitle: "Phasewalker",
@@ -55,7 +54,7 @@ describe("SkillTree", () => {
 
   afterEach(cleanup);
 
-  it("renders the correct number of SkillNodes", () => {
+  it("renders the correct number of Nodes", () => {
     const { queryAllByTestId } = renderComponent(currentId);
 
     expect(queryAllByTestId(/item-/).length).toBe(3);
@@ -64,11 +63,11 @@ describe("SkillTree", () => {
   it("should activate the first style on click", async () => {
     const { getByTestId } = renderComponent(currentId);
 
-    const topSkillNode = getByTestId("item-one");
+    const topNode = getByTestId("item-one");
 
-    fireEvent.click(topSkillNode);
+    fireEvent.click(topNode);
 
-    expect(topSkillNode).toHaveClass("SkillNode SkillNode--selected");
+    expect(topNode).toHaveClass("Node Node--selected");
   });
 
   it("should deactivate the first style on secondclick", async () => {
@@ -77,16 +76,16 @@ describe("SkillTree", () => {
 
     const { getByTestId } = renderComponent(id);
 
-    const topSkillNode = getByTestId("item-one");
+    const topNode = getByTestId("item-one");
 
-    fireEvent.click(topSkillNode);
+    fireEvent.click(topNode);
 
-    expect(topSkillNode).toHaveClass("SkillNode SkillNode--selected");
+    expect(topNode).toHaveClass("Node Node--selected");
 
-    fireEvent.click(topSkillNode);
+    fireEvent.click(topNode);
 
-    expect(topSkillNode).toHaveClass("SkillNode");
-    expect(topSkillNode).not.toHaveClass("SkillNode SkillNode--selected");
+    expect(topNode).toHaveClass("Node");
+    expect(topNode).not.toHaveClass("Node Node--selected");
   });
 
   it("should successfully selected all nodes when clicked in succession", async () => {
@@ -95,21 +94,21 @@ describe("SkillTree", () => {
 
     const { getByTestId } = renderComponent(id);
 
-    const topSkillNode = getByTestId("item-one");
-    const middleSkillNode = getByTestId("item-two");
-    const bottomSkillNode = getByTestId("item-three");
+    const topNode = getByTestId("item-one");
+    const middleNode = getByTestId("item-two");
+    const bottomNode = getByTestId("item-three");
 
-    fireEvent.click(topSkillNode);
+    fireEvent.click(topNode);
 
-    expect(topSkillNode).toHaveClass("SkillNode SkillNode--selected");
+    expect(topNode).toHaveClass("Node Node--selected");
 
-    fireEvent.click(middleSkillNode);
+    fireEvent.click(middleNode);
 
-    expect(middleSkillNode).toHaveClass("SkillNode SkillNode--selected");
+    expect(middleNode).toHaveClass("Node Node--selected");
 
-    fireEvent.click(bottomSkillNode);
+    fireEvent.click(bottomNode);
 
-    expect(bottomSkillNode).toHaveClass("SkillNode SkillNode--selected");
+    expect(bottomNode).toHaveClass("Node Node--selected");
   });
 
   it("should not select a node whose dependencies are not selected", async () => {
@@ -118,12 +117,12 @@ describe("SkillTree", () => {
 
     const { getByTestId } = renderComponent(id);
 
-    const middleSkillNode = getByTestId("item-two");
+    const middleNode = getByTestId("item-two");
 
-    fireEvent.click(middleSkillNode);
+    fireEvent.click(middleNode);
 
-    expect(middleSkillNode).not.toHaveClass("SkillNode SkillNode--selected");
-    expect(middleSkillNode).not.toHaveStyle(`background-color: #f44336`);
+    expect(middleNode).not.toHaveClass("Node Node--selected");
+    expect(middleNode).not.toHaveStyle(`background-color: #f44336`);
   });
 
   it("should load the correct skills that are saved to localstorage", () => {
@@ -140,12 +139,12 @@ describe("SkillTree", () => {
 
     const { getByTestId } = renderComponent(currentId);
 
-    const topSkillNode = getByTestId("item-one");
-    const middleSkillNode = getByTestId("item-two");
-    const bottomSkillNode = getByTestId("item-three");
+    const topNode = getByTestId("item-one");
+    const middleNode = getByTestId("item-two");
+    const bottomNode = getByTestId("item-three");
 
-    expect(topSkillNode).toHaveClass("SkillNode SkillNode--selected");
-    expect(middleSkillNode).toHaveClass("SkillNode SkillNode--unlocked");
-    expect(bottomSkillNode).toHaveClass("SkillNode SkillNode--locked");
+    expect(topNode).toHaveClass("Node Node--selected");
+    expect(middleNode).toHaveClass("Node Node--unlocked");
+    expect(bottomNode).toHaveClass("Node Node--locked");
   });
 });

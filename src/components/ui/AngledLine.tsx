@@ -1,7 +1,6 @@
 import React from "react";
 import classnames from "classnames";
 import "./AngledLine.css";
-import { Dictionary } from "../../models/utils";
 
 interface Props {
   position: {

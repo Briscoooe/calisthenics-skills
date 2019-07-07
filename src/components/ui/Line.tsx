@@ -1,5 +1,4 @@
 import React from "react";
-import { Dictionary } from "../../models/utils";
 
 interface LineProps {
   bottomX: number;

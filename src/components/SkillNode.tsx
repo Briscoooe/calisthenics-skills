@@ -132,7 +132,7 @@ class SkillNode extends React.Component<Props, State> {
       return this.updateState(UNLOCKED_STATE);
     }
   }
- 
+
   render() {
     const { currentState, showTooltip, parentPosition } = this.state;
     const { children, tooltipTitle, tooltipDescription, id } = this.props.skill;
@@ -155,18 +155,17 @@ class SkillNode extends React.Component<Props, State> {
             skill={this.props.skill}
             ref={this.skillNodeRef}
           />
-          {/* move the rest of this tooltip into its own component */}
-          <div className="SkillNode__tooltip-placeholder">
+          <div
+            className="SkillNode__tooltip-placeholder"
+            style={{ left: `${this.childWidth + 28}px` }}
+          >
             {showTooltip && (
-              <div
-                onMouseEnter={() => this.setState({ showTooltip: true })}
-                onMouseLeave={() => this.setState({ showTooltip: false })}
-              >
-                <Tooltip
-                  tooltipTitle={tooltipTitle}
-                  tooltipDescription={tooltipDescription}
-                />
-              </div>
+              <Tooltip
+                handleMouseEnter={() => this.setState({ showTooltip: true })}
+                handleMouseLeave={() => this.setState({ showTooltip: false })}
+                tooltipTitle={tooltipTitle}
+                tooltipDescription={tooltipDescription}
+              />
             )}
           </div>
         </div>

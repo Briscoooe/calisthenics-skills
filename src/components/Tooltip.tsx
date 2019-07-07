@@ -9,7 +9,10 @@ const defaultProps = {
   tooltipDescription: "Some information"
 };
 
-type Props = typeof defaultProps;
+type Props = {
+  handleMouseEnter: () => void;
+  handleMouseLeave: () => void;
+} & typeof defaultProps;
 
 interface State {
   isElementInWindow: boolean;
@@ -46,21 +49,28 @@ class Tooltip extends React.Component<Props, State> {
   }
 
   render() {
-    const { tooltipTitle, tooltipDescription } = this.props;
+    const {
+      tooltipTitle,
+      tooltipDescription,
+      handleMouseEnter,
+      handleMouseLeave
+    } = this.props;
     const { isElementInWindow } = this.state;
 
     return (
-      <div
-        ref={this.tooltipRef}
-        data-testid="tooltip-container"
-        className={classnames("Tooltip__hover-container", {
-          "Tooltip__hover-container--outside-window": !isElementInWindow
-        })}
-      >
-        <div className="Tooltip">
-          <h2 className="Tooltip__title">{tooltipTitle}</h2>
-          <HSeparator />
-          <p className="Tooltip__content">{tooltipDescription}</p>
+      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div
+          ref={this.tooltipRef}
+          data-testid="tooltip-container"
+          className={classnames("Tooltip__hover-container", {
+            "Tooltip__hover-container--outside-window": !isElementInWindow
+          })}
+        >
+          <div className="Tooltip">
+            <h2 className="Tooltip__title">{tooltipTitle}</h2>
+            <HSeparator />
+            <p className="Tooltip__content">{tooltipDescription}</p>
+          </div>
         </div>
       </div>
     );

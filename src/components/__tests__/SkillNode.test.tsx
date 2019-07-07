@@ -18,7 +18,7 @@ function renderComponent(children: Skill[] = []) {
         children,
         id: "test-node",
         icon: BarbellIcon,
-        tooltipTitle: "Hey there",
+         title: "Hey there",
         tooltipDescription: "Description"
       }}
     />

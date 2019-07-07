@@ -9,21 +9,21 @@ export const horizontalPullBackData: Skill[] = [
     id: "german-hang",
     tooltipDescription:
       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-    tooltipTitle: "German Hang",
+     title: "German Hang",
     children: [
       {
         id: "ol-back-lever",
         icon: BarbellIcon,
         tooltipDescription:
           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-        tooltipTitle: "One-legged Back Lever",
+         title: "One-legged Back Lever",
         children: [
           {
             id: "back-lever",
             icon: BarbellIcon,
             tooltipDescription:
               "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-            tooltipTitle: "Back Lever",
+             title: "Back Lever",
             children: []
           }
         ]
@@ -38,49 +38,49 @@ export const horizontalPullFrontData: Skill[] = [
     icon: BarbellIcon,
     tooltipDescription:
       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-    tooltipTitle: "Vertical Row",
+     title: "Vertical Row",
     children: [
       {
         id: "incline-row",
         icon: BarbellIcon,
         tooltipDescription:
           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-        tooltipTitle: "Incline Row",
+         title: "Incline Row",
         children: [
           {
             id: "row",
             icon: BarbellIcon,
             tooltipDescription:
               "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-            tooltipTitle: "Row",
+             title: "Row",
             children: [
               {
                 id: "wide-row",
                 icon: BarbellIcon,
                 tooltipDescription:
                   "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                tooltipTitle: "Wide Row",
+                 title: "Wide Row",
                 children: [
                   {
                     id: "archer-row",
                     icon: BarbellIcon,
                     tooltipDescription:
                       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                    tooltipTitle: "Archer Row",
+                     title: "Archer Row",
                     children: [
                       {
                         id: "archer-in-row",
                         icon: BarbellIcon,
                         tooltipDescription:
                           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                        tooltipTitle: "Archer Incline Row",
+                         title: "Archer Incline Row",
                         children: [
                           {
                             id: "str-oa-row",
                             icon: BarbellIcon,
                             tooltipDescription:
                               "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                            tooltipTitle: "Straddle One Arm Row",
+                             title: "Straddle One Arm Row",
                             children: []
                           }
                         ]
@@ -92,14 +92,14 @@ export const horizontalPullFrontData: Skill[] = [
                     icon: BarbellIcon,
                     tooltipDescription:
                       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                    tooltipTitle: "Tuck Front Lever",
+                     title: "Tuck Front Lever",
                     children: [
                       {
                         id: "one-leg-front-lever",
                         icon: BarbellIcon,
                         tooltipDescription:
                           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                        tooltipTitle: "One Legged Front Level",
+                         title: "One Legged Front Level",
                         children: []
                       },
                       {
@@ -107,7 +107,7 @@ export const horizontalPullFrontData: Skill[] = [
                         icon: BarbellIcon,
                         tooltipDescription:
                           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                        tooltipTitle: "Tuck Ice Cream Maker",
+                         title: "Tuck Ice Cream Maker",
                         children: []
                       }
                     ]
@@ -128,42 +128,42 @@ export const verticalPullData: Skill[] = [
     icon: BarbellIcon,
     tooltipDescription:
       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-    tooltipTitle: "Scapular Pull",
+     title: "Scapular Pull",
     children: [
       {
         id: "arch-hang",
         icon: BarbellIcon,
         tooltipDescription:
           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-        tooltipTitle: "Arch Hang",
+         title: "Arch Hang",
         children: [
           {
             id: "pull-up-neg",
             icon: BarbellIcon,
             tooltipDescription:
               "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-            tooltipTitle: "Pull Up (Negative)",
+             title: "Pull Up (Negative)",
             children: [
               {
                 id: "pull-up",
                 icon: BarbellIcon,
                 tooltipDescription:
                   "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                tooltipTitle: "Pull Up",
+                 title: "Pull Up",
                 children: [
                   {
                     id: "ring-lsit-pull-up",
                     icon: BarbellIcon,
                     tooltipDescription:
                       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                    tooltipTitle: "Ring L-sit Pull Up",
+                     title: "Ring L-sit Pull Up",
                     children: [
                       {
                         id: "archer-pull-up",
                         icon: BarbellIcon,
                         tooltipDescription:
                           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                        tooltipTitle: "Archer Pull Up",
+                         title: "Archer Pull Up",
                         children: []
                       }
                     ]
@@ -173,14 +173,14 @@ export const verticalPullData: Skill[] = [
                     icon: BarbellIcon,
                     tooltipDescription:
                       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                    tooltipTitle: "L-sit Pull Up",
+                     title: "L-sit Pull Up",
                     children: [
                       {
                         id: "pullover",
                         icon: BarbellIcon,
                         tooltipDescription:
                           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                        tooltipTitle: "Pullover",
+                         title: "Pullover",
                         children: []
                       }
                     ]
@@ -189,21 +189,21 @@ export const verticalPullData: Skill[] = [
                     id: "c2b-pull-up",
                     tooltipDescription:
                       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                    tooltipTitle: "Chin to Bar Pull Up",
+                     title: "Chin to Bar Pull Up",
                     children: [
                       {
                         id: "mu-neg",
                         icon: BarbellIcon,
                         tooltipDescription:
                           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                        tooltipTitle: "Muscle Up (Neg)",
+                         title: "Muscle Up (Neg)",
                         children: [
                           {
                             id: "mu",
                             icon: BarbellIcon,
                             tooltipDescription:
                               "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                            tooltipTitle: "Muscle Up",
+                             title: "Muscle Up",
                             children: []
                           }
                         ]
@@ -224,31 +224,31 @@ export const verticalPullAndPushData: Skill[] = [
   {
     id: "side-plank",
     icon: BarbellIcon,
-    tooltipTitle: "Side Plank",
+     title: "Side Plank",
     tooltipDescription: lorem,
     children: [
       {
         id: "pull-up",
         icon: BarbellIcon,
-        tooltipTitle: "Pull Up",
+         title: "Pull Up",
         tooltipDescription: lorem,
         children: [
           {
             id: "vertical-flag",
             icon: BarbellIcon,
-            tooltipTitle: "Vertical Flag",
+             title: "Vertical Flag",
             tooltipDescription: lorem,
             children: [
               {
                 id: "Straddle Flag",
                 icon: BarbellIcon,
-                tooltipTitle: "Sraddle Flag",
+                 title: "Sraddle Flag",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "human-flag",
                     icon: BarbellIcon,
-                    tooltipTitle: "Human Flag",
+                     title: "Human Flag",
                     tooltipDescription: lorem,
                     children: []
                   }
@@ -266,49 +266,49 @@ export const verticalPushDownData: Skill[] = [
   {
     id: "bar-sup-hold",
     icon: BarbellIcon,
-    tooltipTitle: "Bar Support Hold",
+     title: "Bar Support Hold",
     tooltipDescription: lorem,
     children: [
       {
         id: "foot-sup-lsit",
         icon: BarbellIcon,
-        tooltipTitle: "Foot Supported L-sit",
+         title: "Foot Supported L-sit",
         tooltipDescription: lorem,
         children: [
           {
             id: "tuck-lsit",
             icon: BarbellIcon,
-            tooltipTitle: "Tuck L-sit",
+             title: "Tuck L-sit",
             tooltipDescription: lorem,
             children: [
               {
                 id: "lsit",
                 icon: BarbellIcon,
-                tooltipTitle: "L-sit",
+                 title: "L-sit",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "45-deg-vsit",
                     icon: BarbellIcon,
-                    tooltipTitle: "45° V-sit",
+                     title: "45° V-sit",
                     tooltipDescription: lorem,
                     children: [
                       {
                         id: "90-deg-vsit",
                         icon: BarbellIcon,
-                        tooltipTitle: "90° V-sit",
+                         title: "90° V-sit",
                         tooltipDescription: lorem,
                         children: [
                           {
                             id: "120-deg-vsit",
                             icon: BarbellIcon,
-                            tooltipTitle: "120° V-sit",
+                             title: "120° V-sit",
                             tooltipDescription: lorem,
                             children: [
                               {
                                 id: "manna",
                                 icon: BarbellIcon,
-                                tooltipTitle: "Manna",
+                                 title: "Manna",
                                 tooltipDescription: lorem,
                                 children: []
                               }
@@ -327,55 +327,55 @@ export const verticalPushDownData: Skill[] = [
       {
         id: "bar-dip-neg",
         icon: BarbellIcon,
-        tooltipTitle: "Dip (Negative)",
+         title: "Dip (Negative)",
         tooltipDescription: lorem,
         children: [
           {
             id: "bar-dip",
             icon: BarbellIcon,
-            tooltipTitle: "Parallel Bar Dip",
+             title: "Parallel Bar Dip",
             tooltipDescription: lorem,
             children: [
               {
                 id: "lsit-dip",
                 icon: BarbellIcon,
-                tooltipTitle: "L-sit Dip",
+                 title: "L-sit Dip",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "ring-support-hold",
                     icon: BarbellIcon,
-                    tooltipTitle: "Ring Support Hold",
+                     title: "Ring Support Hold",
                     tooltipDescription: lorem,
                     children: [
                       {
                         id: "ring-dip-neg",
                         icon: BarbellIcon,
-                        tooltipTitle: "Ring Dip (Negative)",
+                         title: "Ring Dip (Negative)",
                         tooltipDescription: lorem,
                         children: [
                           {
                             id: "ring-dip",
                             icon: BarbellIcon,
-                            tooltipTitle: "Ring Dip",
+                             title: "Ring Dip",
                             tooltipDescription: lorem,
                             children: [
                               {
                                 id: "ring-dip-rto",
                                 icon: BarbellIcon,
-                                tooltipTitle: "Ring Dip (RTO)",
+                                 title: "Ring Dip (RTO)",
                                 tooltipDescription: lorem,
                                 children: [
                                   {
                                     id: "bulgarian-dip",
                                     icon: BarbellIcon,
-                                    tooltipTitle: "Bulgarian Dip",
+                                     title: "Bulgarian Dip",
                                     tooltipDescription: lorem,
                                     children: [
                                       {
                                         id: "ring-lsit-dip",
                                         icon: BarbellIcon,
-                                        tooltipTitle: "Ring L-sit Dip",
+                                         title: "Ring L-sit Dip",
                                         tooltipDescription: lorem,
                                         children: []
                                       }
@@ -403,31 +403,31 @@ export const verticalPushUpData: Skill[] = [
   {
     id: "wall-plank",
     icon: BarbellIcon,
-    tooltipTitle: "Wall Plank",
+     title: "Wall Plank",
     tooltipDescription: lorem,
     children: [
       {
         id: "reverse-plank",
         icon: BarbellIcon,
-        tooltipTitle: "Reverse Plank",
+         title: "Reverse Plank",
         tooltipDescription: lorem,
         children: [
           {
             id: "shoulder-bridge",
             icon: BarbellIcon,
-            tooltipTitle: "Shoulder Bridge",
+             title: "Shoulder Bridge",
             tooltipDescription: lorem,
             children: [
               {
                 id: "table-bridge",
                 icon: BarbellIcon,
-                tooltipTitle: "Table Bridge",
+                 title: "Table Bridge",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "wheel",
                     icon: BarbellIcon,
-                    tooltipTitle: "Bridge/Wheel",
+                     title: "Bridge/Wheel",
                     tooltipDescription: lorem,
                     children: []
                   }
@@ -440,31 +440,31 @@ export const verticalPushUpData: Skill[] = [
       {
         id: "wall-hs",
         icon: BarbellIcon,
-        tooltipTitle: "Wall Handstand",
+         title: "Wall Handstand",
         tooltipDescription: lorem,
         children: [
           {
             id: "handstand",
             icon: BarbellIcon,
-            tooltipTitle: "Handstand",
+             title: "Handstand",
             tooltipDescription: lorem,
             children: [
               {
                 id: "tuck-hs",
                 icon: BarbellIcon,
-                tooltipTitle: "Tuck Handstand",
+                 title: "Tuck Handstand",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "straddle-oa-hs",
                     icon: BarbellIcon,
-                    tooltipTitle: "Wall Plank",
+                     title: "Wall Plank",
                     tooltipDescription: lorem,
                     children: [
                       {
                         id: "straight-oa-hs",
                         icon: BarbellIcon,
-                        tooltipTitle: "Straight OA Handstand",
+                         title: "Straight OA Handstand",
                         tooltipDescription: lorem,
                         children: []
                       }
@@ -475,13 +475,13 @@ export const verticalPushUpData: Skill[] = [
               {
                 id: "ring-ss",
                 icon: BarbellIcon,
-                tooltipTitle: "Ring Shoulder Stand",
+                 title: "Ring Shoulder Stand",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "ring-hs",
                     icon: BarbellIcon,
-                    tooltipTitle: "Ring Handstand",
+                     title: "Ring Handstand",
                     tooltipDescription: lorem,
                     children: []
                   }
@@ -490,19 +490,19 @@ export const verticalPushUpData: Skill[] = [
               {
                 id: "wall-hes-pu-neg",
                 icon: BarbellIcon,
-                tooltipTitle: "Wall Headstand Pushup (Negative)",
+                 title: "Wall Headstand Pushup (Negative)",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "wall-hes-pu",
                     icon: BarbellIcon,
-                    tooltipTitle: "Wall Headstand Pushup",
+                     title: "Wall Headstand Pushup",
                     tooltipDescription: lorem,
                     children: [
                       {
                         id: "wall-hs-pu",
                         icon: BarbellIcon,
-                        tooltipTitle: "Wall Handstand Pushup",
+                         title: "Wall Handstand Pushup",
                         tooltipDescription: lorem,
                         children: []
                       }
@@ -522,37 +522,37 @@ export const horizontalPushData: Skill[] = [
   {
     id: "incline-push-up",
     icon: BarbellIcon,
-    tooltipTitle: "Incline Push Up",
+     title: "Incline Push Up",
     tooltipDescription: lorem,
     children: [
       {
         id: "push-up",
         icon: BarbellIcon,
-        tooltipTitle: "Push Up",
+         title: "Push Up",
         tooltipDescription: lorem,
         children: [
           {
             id: "diamond-push-up",
             icon: BarbellIcon,
-            tooltipTitle: "Diamond Push Up",
+             title: "Diamond Push Up",
             tooltipDescription: lorem,
             children: [
               {
                 id: "pp-push-up",
                 icon: BarbellIcon,
-                tooltipTitle: "Pseudo Planche Push Up",
+                 title: "Pseudo Planche Push Up",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "decline-pike-up",
                     icon: BarbellIcon,
-                    tooltipTitle: "Decline Pike Push Up",
+                     title: "Decline Pike Push Up",
                     tooltipDescription: lorem,
                     children: [
                       {
                         id: "archer-push-up",
                         icon: BarbellIcon,
-                        tooltipTitle: "Archer Push Up",
+                         title: "Archer Push Up",
                         tooltipDescription: lorem,
                         children: []
                       }
@@ -563,25 +563,25 @@ export const horizontalPushData: Skill[] = [
               {
                 id: "rto-push-up",
                 icon: BarbellIcon,
-                tooltipTitle: "RTO Push Up",
+                 title: "RTO Push Up",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "rto-archer-push-up",
                     icon: BarbellIcon,
-                    tooltipTitle: "RTO Archer Push Up",
+                     title: "RTO Archer Push Up",
                     tooltipDescription: lorem,
                     children: [
                       {
                         id: "rto-pp-push-up",
                         icon: BarbellIcon,
-                        tooltipTitle: "RTO Pseudo Planche Push Up",
+                         title: "RTO Pseudo Planche Push Up",
                         tooltipDescription: lorem,
                         children: [
                           {
                             id: "rto-maltese-push-up",
                             icon: BarbellIcon,
-                            tooltipTitle: "RTO Maltese Push Up",
+                             title: "RTO Maltese Push Up",
                             tooltipDescription: lorem,
                             children: []
                           }
@@ -600,37 +600,37 @@ export const horizontalPushData: Skill[] = [
   {
     id: "planche-lean",
     icon: BarbellIcon,
-    tooltipTitle: "Planche Lean",
+     title: "Planche Lean",
     tooltipDescription: lorem,
     children: [
       {
         id: "crow-pose",
         icon: BarbellIcon,
-        tooltipTitle: "Crow Pose",
+         title: "Crow Pose",
         tooltipDescription: lorem,
         children: [
           {
             id: "crane-pose",
             icon: BarbellIcon,
-            tooltipTitle: "Crane Pose",
+             title: "Crane Pose",
             tooltipDescription: lorem,
             children: [
               {
                 id: "tuck-planche",
                 icon: BarbellIcon,
-                tooltipTitle: "Tuck Planche",
+                 title: "Tuck Planche",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "str-planche",
                     icon: BarbellIcon,
-                    tooltipTitle: "Straddle Planche",
+                     title: "Straddle Planche",
                     tooltipDescription: lorem,
                     children: [
                       {
                         id: "planche",
                         icon: BarbellIcon,
-                        tooltipTitle: "Planche",
+                         title: "Planche",
                         tooltipDescription: lorem,
                         children: []
                       }
@@ -639,19 +639,19 @@ export const horizontalPushData: Skill[] = [
                   {
                     id: "tuck-planche-pu",
                     icon: BarbellIcon,
-                    tooltipTitle: "Tuck Planche Push Up",
+                     title: "Tuck Planche Push Up",
                     tooltipDescription: lorem,
                     children: [
                       {
                         id: "str-planche-pu",
                         icon: BarbellIcon,
-                        tooltipTitle: "Straddle Planche Push Up",
+                         title: "Straddle Planche Push Up",
                         tooltipDescription: lorem,
                         children: [
                           {
                             id: "planche-pu",
                             icon: BarbellIcon,
-                            tooltipTitle: "Planche Push Up",
+                             title: "Planche Push Up",
                             tooltipDescription: lorem,
                             children: []
                           }
@@ -664,13 +664,13 @@ export const horizontalPushData: Skill[] = [
               {
                 id: "str-elbow-lever",
                 icon: BarbellIcon,
-                tooltipTitle: "Straddle Elbow Lever",
+                 title: "Straddle Elbow Lever",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "elbow-lever",
                     icon: BarbellIcon,
-                    tooltipTitle: "Elbow Lever",
+                     title: "Elbow Lever",
                     tooltipDescription: lorem,
                     children: []
                   }
@@ -688,25 +688,25 @@ export const coreData: Skill[] = [
   {
     id: "plank",
     icon: BarbellIcon,
-    tooltipTitle: "Plank",
+     title: "Plank",
     tooltipDescription: lorem,
     children: [
       {
         id: "oa-plank",
         icon: BarbellIcon,
-        tooltipTitle: "One-Armed Plank",
+         title: "One-Armed Plank",
         tooltipDescription: lorem,
         children: [
           {
             id: "knees-ab-wheel",
             icon: BarbellIcon,
-            tooltipTitle: "Kneeling Ab Wheel",
+             title: "Kneeling Ab Wheel",
             tooltipDescription: lorem,
             children: [
               {
                 id: "sl-ab-wheel",
                 icon: BarbellIcon,
-                tooltipTitle: "Straight-leg Ab Wheel",
+                 title: "Straight-leg Ab Wheel",
                 tooltipDescription: lorem,
                 children: []
               }
@@ -719,19 +719,19 @@ export const coreData: Skill[] = [
   {
     id: "rev-hyperext",
     icon: BarbellIcon,
-    tooltipTitle: "Reverse Hyperextensions",
+     title: "Reverse Hyperextensions",
     tooltipDescription: lorem,
     children: [
       {
         id: "hyperext",
         icon: BarbellIcon,
-        tooltipTitle: "Hyperextensions",
+         title: "Hyperextensions",
         tooltipDescription: lorem,
         children: [
           {
             id: "arch-body-hold",
             icon: BarbellIcon,
-            tooltipTitle: "Arch Body Hold",
+             title: "Arch Body Hold",
             tooltipDescription: lorem,
             children: []
           }
@@ -742,38 +742,38 @@ export const coreData: Skill[] = [
   {
     id: "pallof-press",
     icon: BarbellIcon,
-    tooltipTitle: "Pallof Press",
+     title: "Pallof Press",
     tooltipDescription: lorem,
     children: []
   },
   {
     id: "hollow-hold",
     icon: BarbellIcon,
-    tooltipTitle: "Hollow Hold",
+     title: "Hollow Hold",
     tooltipDescription: lorem,
     children: [
       {
         id: "tuck-up-crunch",
         icon: BarbellIcon,
-        tooltipTitle: "Tuck Up Crunch",
+         title: "Tuck Up Crunch",
         tooltipDescription: lorem,
         children: [
           {
             id: "seated-pike-leg-lift",
             icon: BarbellIcon,
-            tooltipTitle: "Seated Pike Leg Lift",
+             title: "Seated Pike Leg Lift",
             tooltipDescription: lorem,
             children: [
               {
                 id: "hanging-knee-raise",
                 icon: BarbellIcon,
-                tooltipTitle: "Hanging Knee Raise",
+                 title: "Hanging Knee Raise",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "hanging-leg-raise-t2b",
                     icon: BarbellIcon,
-                    tooltipTitle: "hanging-leg-raise-t2b",
+                     title: "hanging-leg-raise-t2b",
                     tooltipDescription: lorem,
                     children: []
                   }
@@ -782,19 +782,19 @@ export const coreData: Skill[] = [
               {
                 id: "tuck-df-neg",
                 icon: BarbellIcon,
-                tooltipTitle: "Tuck Dragon Flag (Negative)",
+                 title: "Tuck Dragon Flag (Negative)",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "str-df",
                     icon: BarbellIcon,
-                    tooltipTitle: "Straddle Dragon Flag",
+                     title: "Straddle Dragon Flag",
                     tooltipDescription: lorem,
                     children: [
                       {
                         id: "df",
                         icon: BarbellIcon,
-                        tooltipTitle: "Dragon Flag",
+                         title: "Dragon Flag",
                         tooltipDescription: lorem,
                         children: []
                       }
@@ -814,37 +814,37 @@ export const legsPushData: Skill[] = [
   {
     id: "ass-squat",
     icon: BarbellIcon,
-    tooltipTitle: "Assisted Squat",
+     title: "Assisted Squat",
     tooltipDescription: lorem,
     children: [
       {
         id: "parallel-squat",
         icon: BarbellIcon,
-        tooltipTitle: "Parallel Squat",
+         title: "Parallel Squat",
         tooltipDescription: lorem,
         children: [
           {
             id: "full-squat",
             icon: BarbellIcon,
-            tooltipTitle: "Reverse Hyperextensions",
+             title: "Reverse Hyperextensions",
             tooltipDescription: lorem,
             children: [
               {
                 id: "cossack-squat",
                 icon: BarbellIcon,
-                tooltipTitle: "Cossack Squat",
+                 title: "Cossack Squat",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "ass-pistol-squat",
                     icon: BarbellIcon,
-                    tooltipTitle: "Pistol Squat (Assisted)",
+                     title: "Pistol Squat (Assisted)",
                     tooltipDescription: lorem,
                     children: [
                       {
                         id: "pistol-squat",
                         icon: BarbellIcon,
-                        tooltipTitle: "Pistol Squat",
+                         title: "Pistol Squat",
                         tooltipDescription: lorem,
                         children: []
                       }
@@ -855,32 +855,32 @@ export const legsPushData: Skill[] = [
               {
                 id: "split-squat",
                 icon: BarbellIcon,
-                tooltipTitle: "Split Squat",
+                 title: "Split Squat",
                 tooltipDescription: lorem,
                 children: [
                   {
                     id: "bulgarian-split-squat",
                     icon: BarbellIcon,
-                    tooltipTitle: "Bulgarian Split Squat",
+                     title: "Bulgarian Split Squat",
                     tooltipDescription: lorem,
                     children: [
                       {
                         id: "deep-step-up",
                         icon: BarbellIcon,
-                        tooltipTitle: "Deep Step Up",
+                         title: "Deep Step Up",
                         tooltipDescription: lorem,
                         children: []
                       },
                       {
                         id: "beg-shrimp-squat",
                         icon: BarbellIcon,
-                        tooltipTitle: "Beginner Shrimp Squat",
+                         title: "Beginner Shrimp Squat",
                         tooltipDescription: lorem,
                         children: [
                           {
                             id: "shrimp-squat",
                             icon: BarbellIcon,
-                            tooltipTitle: "Shrimp Squat",
+                             title: "Shrimp Squat",
                             tooltipDescription: lorem,
                             children: []
                           }
@@ -904,42 +904,42 @@ export const legsPullData: Skill[] = [
     icon: BarbellIcon,
     tooltipDescription:
       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-    tooltipTitle: "One-Legged Deadlift",
+     title: "One-Legged Deadlift",
     children: [
       {
         id: "45deg-hip-nc",
         icon: BarbellIcon,
         tooltipDescription:
           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-        tooltipTitle: "45° Hip Nordic Curl",
+         title: "45° Hip Nordic Curl",
         children: [
           {
             id: "nordic-curl-negative",
             icon: BarbellIcon,
             tooltipDescription:
               "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-            tooltipTitle: "Nordic Curl (Negative)",
+             title: "Nordic Curl (Negative)",
             children: [
               {
                 id: "nordic-curl",
                 icon: BarbellIcon,
                 tooltipDescription:
                   "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                tooltipTitle: "Nordic Curl",
+                 title: "Nordic Curl",
                 children: [
                   {
                     id: "tuck-ol-nordic-curl",
                     icon: BarbellIcon,
                     tooltipDescription:
                       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                    tooltipTitle: "Tuck One-Legged Nordic Curl",
+                     title: "Tuck One-Legged Nordic Curl",
                     children: [
                       {
                         id: "ol-nordic-curl",
                         icon: BarbellIcon,
                         tooltipDescription:
                           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                        tooltipTitle: "One-Legged Nordic Curl",
+                         title: "One-Legged Nordic Curl",
                         children: []
                       }
                     ]

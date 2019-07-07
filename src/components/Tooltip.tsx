@@ -5,7 +5,7 @@ import HSeparator from "./ui/HSeparator";
 import { getIsElementInWindow } from "../helpers";
 
 const defaultProps = {
-  tooltipTitle: "Title",
+   title: "Title",
   tooltipDescription: "Some information"
 };
 
@@ -50,7 +50,7 @@ class Tooltip extends React.Component<Props, State> {
 
   render() {
     const {
-      tooltipTitle,
+       title,
       tooltipDescription,
       handleMouseEnter,
       handleMouseLeave
@@ -67,7 +67,7 @@ class Tooltip extends React.Component<Props, State> {
           })}
         >
           <div className="Tooltip">
-            <h2 className="Tooltip__title">{tooltipTitle}</h2>
+            <h2 className="Tooltip__title">{ title}</h2>
             <HSeparator />
             <p className="Tooltip__content">{tooltipDescription}</p>
           </div>

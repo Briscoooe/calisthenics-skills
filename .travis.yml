@@ -1,10 +1,17 @@
 language: node_js
 node_js:
-  - "10.16.0"
+- 10.16.0
 cache: yarn
-
 script:
-  - yarn
-  - yarn test
-  - yarn build
-
+- yarn
+- yarn test
+- yarn build
+deploy:
+  provider: s3
+  access_key_id:
+    secure: qGHPWx1xNpPH25KMCS5IQo/fBRFP7x+jkl1nznefGYeEm/k1pTOeoBhUnHB6/qyAs0OprsZIHg4zUxBIb+Q0Gq3U8ir4ZGTitcIIAL/eOhHRL2xT/uJgcnIbHoA0yvbhrN6/hKdVudt3xqXr3xPfA/ClHUTokH47enpE5fqUxci/OXXYIDtqRkss4u/I9SNG9lz1LLr/YU8e1CDjbtkSre89SNjnG4DB/PlCR3mfyaOURM3OMaQf5DggwTZ4ys7Rc2bqWXomFDR4NvIA/+zhs+eyL71frSyHpssnBGFXpQfN3y4CczsIaWJf6qBYBKLISkE8iO8zOG3raE5/tp7zxYGqlyODxXQO5swszCFrNBeyTPyoavYBApMUjfSJ0jTHqjoWSs1ii9Pq7YJSM7xfGmrdVTkjrC2ApvvF221M/eRH3T1xlXG6SNuSdmyOxH8T0KFhWuJZPXpIArpEM5hWJnnDE/IJAoctCbanTfTWIj5Bwi9el1BvEGuHlS3/Ew6MNlbQir2oAFuaQ9pWfadIYWXiAuykA6YyVa9BsTtUGHyDZxdkKfVCWtntN+Oy+YnL0hTfTHudWUVEQ4Kxs/I8PjK2W6r3+8x7PhcIzjAFlcnRGRuEh9Yx09NcUaj9OrKyhpVC3dAyq7yuwoYPu7dcs0Wc2NPvCCL7lFQYfN4Vn2o=
+  secret_access_key:
+    secure: sZ2iXNK/kCELxYliwb/+UaDsuR57moV3gVlhuEOOqewlRPef/CPfgRPeazRREsbH3jxcvXby1nsdakuiTbBYAAf3+uF0eP/bn2mxpoqa44ktS9hnrEvDbn/HrcTXv7TxRHUD8/mzQ4MsdDK+VZSwtP+Ih7YgeVFe2vJrEDfPDlguWcTaN4Ry0Vhw4TBUXkM2ToYECp1xTkhmWU0B6qnPAZ8fnYO+l4LkdeUGdwBkY5zkzV+KeiSs89UEBCOk86z8c2cLTB5m3Hz37yXqN9r1qSjePeU3gULZ+OxW40BXGfuPnBcWIXzh/IjZMwgm1GCueN9/WdldFK/gJVct30xDjcYRRj8LM/vfX2AV90gOwSCKEp6KNFytTIYkcZwYT3vTur54ZeH+3dDvVuPMbACMe+pRK70s7KFFZKaLkp1sOU3my9rfNZI4YY6xkTKsEYhtBNkVu8UtzUczd7wxrlDVQcXiEP/txmWl9XG39IWrUNDfjMLU0MAzIJegd6Sp9krmWn8wE12XOIM21Gfrl0Zr5nheaEnJgk8uVccDdYp6xjgze6i0XKX1xbZbs/ztw/2A+zdQ+R0Ni9vadeiAoaMFAcutcyXAOgSMvV+Y65QbpTGNJX5HI4Y/6TQvSQh6DOl0Llk8WZd93XVQSyJ8KsxTOhpRt+FhhAtdTxp52i11cA8=
+  bucket: calisthenicsskills.com
+  skip_cleanup: true
+  region: us-east-1

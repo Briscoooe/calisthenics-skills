@@ -23,7 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:ci": "react-scripts test --no-watchman",
+    "test:ci": "react-scripts test --no-watchman --coverage",
     "test:watch": "react-scripts test --watch --coverage",
     "eject": "react-scripts eject"
   },

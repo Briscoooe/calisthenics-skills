@@ -187,21 +187,6 @@ export const verticalPullData: Skill[] = [
                 title: "Pull Up",
                 children: [
                   {
-                    id: "ring-lsit-pull-up",
-                    tooltipDescription:
-                      "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                    title: "Ring L-sit Pull Up",
-                    children: [
-                      {
-                        id: "archer-pull-up",
-                        tooltipDescription:
-                          "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                        title: "Archer Pull Up",
-                        children: []
-                      }
-                    ]
-                  },
-                  {
                     id: "lsit-pull-up",
                     icon: RingsIcon,
                     tooltipDescription:
@@ -219,24 +204,32 @@ export const verticalPullData: Skill[] = [
                     ]
                   },
                   {
-                    id: "c2b-pull-up",
+                    id: "archer-pull-up",
                     tooltipDescription:
                       "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                    title: "Chin to Bar Pull Up",
+                    title: "Archer Pull Up",
                     children: [
                       {
-                        id: "mu-neg",
+                        id: "c2b-pull-up",
                         tooltipDescription:
                           "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                        title: "Muscle Up (Neg)",
+                        title: "Chest to Bar Pull Up",
                         children: [
                           {
-                            id: "mu",
-                            icon: RingsIcon,
+                            id: "mu-neg",
                             tooltipDescription:
                               "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
-                            title: "Muscle Up",
-                            children: []
+                            title: "Muscle Up (Neg)",
+                            children: [
+                              {
+                                id: "mu",
+                                icon: RingsIcon,
+                                tooltipDescription:
+                                  "Lilith's Action Skill is Phasewalk, which allows her to turn invisible and increase her running speed. Upon entering and exiting Phasewalk, Lilith releases a Phase Blast that damages enemies around her. While in Phasewalk, Lilith cannot shoot, jump, or collect loot, and a melee attack will cause her to exit Phasewalk.",
+                                title: "Muscle Up",
+                                children: []
+                              }
+                            ]
                           }
                         ]
                       }
@@ -405,35 +398,6 @@ export const verticalPushUpData: Skill[] = [
     tooltipDescription: lorem,
     children: [
       {
-        id: "reverse-plank",
-        icon: RingsIcon,
-        title: "Reverse Plank",
-        tooltipDescription: lorem,
-        children: [
-          {
-            id: "shoulder-bridge",
-            title: "Shoulder Bridge",
-            tooltipDescription: lorem,
-            children: [
-              {
-                id: "table-bridge",
-                title: "Table Bridge",
-                tooltipDescription: lorem,
-                children: [
-                  {
-                    id: "wheel",
-                    icon: RingsIcon,
-                    title: "Bridge/Wheel",
-                    tooltipDescription: lorem,
-                    children: []
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
         id: "wall-hs",
         title: "Wall Handstand",
         tooltipDescription: lorem,
@@ -513,6 +477,35 @@ export const verticalPushUpData: Skill[] = [
                     ]
                   }
                 ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "reverse-plank",
+    icon: RingsIcon,
+    title: "Reverse Plank",
+    tooltipDescription: lorem,
+    children: [
+      {
+        id: "shoulder-bridge",
+        title: "Shoulder Bridge",
+        tooltipDescription: lorem,
+        children: [
+          {
+            id: "table-bridge",
+            title: "Table Bridge",
+            tooltipDescription: lorem,
+            children: [
+              {
+                id: "wheel",
+                icon: RingsIcon,
+                title: "Bridge/Wheel",
+                tooltipDescription: lorem,
+                children: []
               }
             ]
           }

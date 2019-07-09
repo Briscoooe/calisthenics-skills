@@ -1,15 +1,8 @@
-.NavBar {
-  flex-direction: row;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
 .NavBar__list {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin: 16px;
+  padding: 0;
 }
 
 .NavBar__list li {
@@ -41,4 +34,17 @@
   color: white;
   text-decoration: none;
   transition: border-bottom-width 0.6s;
+}
+
+@media (min-width: 900px) {
+  .NavBar {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .NavBar__list {
+    justify-content: flex-end;
+  }
 }

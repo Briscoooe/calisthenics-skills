@@ -52,7 +52,7 @@ const SkillTreeSegment = React.memo(function({
   }, []);
 
   return (
-    <div>
+    <div className="SkillTreeSegment">
       {parentNodeId && (
         <SkillEdge
           position={{

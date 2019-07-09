@@ -8,7 +8,7 @@
   background-color: white;
   border-radius: 4px;
   height: 100%;
-  left: 24px;
+  left: 8px;
   opacity: 0;
   pointer-events: none;
   position: absolute;
@@ -30,4 +30,10 @@
   position: absolute;
   top: 0;
   width: 344px;
+}
+
+@media (min-width: 900px) {
+  .SkillNode__overlay {
+    left: 24px;
+  }
 }

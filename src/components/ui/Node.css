@@ -5,7 +5,7 @@
   border-radius: 4px;
   cursor: pointer;
   display: flex;
-  margin: 0 24px;
+  margin: 0 8px;
   position: relative;
   transition: box-shadow 0.6s, opacity 1s;
   user-select: none;
@@ -81,7 +81,7 @@
   font-weight: 600;
   justify-content: center;
   height: 32px;
-  width: 160px;
+  width: 144px;
 }
 
 .Node__text {
@@ -90,4 +90,10 @@
   overflow: hidden;
   padding: 0 8px;
   white-space: nowrap;
+}
+
+@media (min-width: 900px) {
+  .Node {
+    margin: 0 24px;
+  }
 }

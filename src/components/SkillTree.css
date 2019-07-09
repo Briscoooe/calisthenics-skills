@@ -8,17 +8,26 @@
   border-radius: 4px;
   display: flex;
   padding: 16px 0;
+  flex-direction: column;
   justify-content: center;
+}
+
+.SkillTree > .SkillTreeSegment {
+  margin: 8px 0;
 }
 
 .SkillTree__title {
   min-height: 56px;
   min-width: 152px;
-  text-align: left;
+  text-align: center;
 }
 
 @media (min-width: 900px) {
-  .SkillTree__title {
-    text-align: center;
+  .SkillTree {
+    flex-direction: row;
+  }
+
+  .SkillTree > .SkillTreeSegment {
+    margin: 0;
   }
 }

@@ -1,5 +1,5 @@
 .App {
-  padding: 80px 32px;
+  padding: 8px;
   text-align: center;
   position: relative;
 }
@@ -20,6 +20,10 @@
 }
 
 @media (min-width: 900px) {
+  .App {
+    padding: 40px 32px;
+  }
+
   .App__body {
     flex-direction: row;
     min-width: fit-content;

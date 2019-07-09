@@ -23,6 +23,10 @@
 }
 
 @media (min-width: 900px) {
+  .SkillTree__container {
+    margin-bottom: 16px;
+  }
+  
   .SkillTree {
     flex-direction: row;
   }

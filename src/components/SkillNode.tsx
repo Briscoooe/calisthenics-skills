@@ -135,7 +135,7 @@ class SkillNode extends React.Component<Props, State> {
 
   render() {
     const { currentState, showTooltip, parentPosition } = this.state;
-    const { children,  title, tooltipDescription, id } = this.props.skill;
+    const { children, title, tooltipDescription, id } = this.props.skill;
 
     return (
       <React.Fragment>
@@ -155,19 +155,19 @@ class SkillNode extends React.Component<Props, State> {
             skill={this.props.skill}
             ref={this.skillNodeRef}
           />
-          <div
-            className="SkillNode__tooltip-placeholder"
-            style={{ left: `${this.childWidth + 28}px` }}
-          >
-            {showTooltip && (
+          {showTooltip && (
+            <div
+              className="SkillNode__tooltip-placeholder"
+              style={{ left: `${this.childWidth + 14}px` }}
+            >
               <Tooltip
                 handleMouseEnter={() => this.setState({ showTooltip: true })}
                 handleMouseLeave={() => this.setState({ showTooltip: false })}
-                 title={ title}
+                title={title}
                 tooltipDescription={tooltipDescription}
               />
-            )}
-          </div>
+            </div>
+          )}
         </div>
         {/* move these styles into the css file */}
         {children.length > 0 && (

@@ -13,7 +13,7 @@
 
 .Node--locked {
   cursor: initial;
-  opacity: 0.5;
+  opacity: 0.65;
 }
 
 .Node--unlocked {
@@ -94,6 +94,6 @@
 
 @media (min-width: 900px) {
   .Node {
-    margin: 0 24px;
+    margin: 0 16px;
   }
 }

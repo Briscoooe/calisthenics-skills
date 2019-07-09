@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, cleanup, act } from "@testing-library/react";
 import SkillNode from "../SkillNode";
-import { BarbellIcon } from "../../icons";
+import { RingsIcon } from "../../icons";
 import { Skill } from "../../models";
 import { horizontalPullBackData } from "../../data/skillTreeData";
 
@@ -17,7 +17,7 @@ function renderComponent(children: Skill[] = []) {
       skill={{
         children,
         id: "test-node",
-        icon: BarbellIcon,
+        icon: RingsIcon,
          title: "Hey there",
         tooltipDescription: "Description"
       }}

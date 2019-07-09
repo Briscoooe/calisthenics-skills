@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Icon, { Props } from "../Icon";
-import { BarbellIcon } from "../../../icons";
+import { RingsIcon } from "../../../icons";
 
 function renderComponent(props: Props) {
   return render(
@@ -16,7 +16,7 @@ function renderComponent(props: Props) {
 describe("Icon component", () => {
   it("should render the correct icon", () => {
     const { queryByAltText, getByTestId } = renderComponent({
-      src: BarbellIcon,
+      src: RingsIcon,
       title: "test icon.",
       containerWidth: 20
     });

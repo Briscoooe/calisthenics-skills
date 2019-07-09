@@ -16,7 +16,14 @@
   color: white;
   display: flex;
   justify-content: center;
-  min-width: fit-content;
+  flex-direction: column;
+}
+
+@media (min-width: 900px) {
+  .App__body {
+    flex-direction: row;
+    min-width: fit-content;
+  }
 }
 
 @keyframes fadeout {

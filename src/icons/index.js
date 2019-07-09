@@ -1,2 +1,1 @@
-export { default as BarbellIcon } from "./barbell.svg";
-export { default as MapIcon } from "./map.svg";
+export { default as RingsIcon } from "./rings.svg";

@@ -1,5 +1,6 @@
 .SkillTree__container {
   margin: 0 8px;
+  min-width: fit-content;
 }
 
 .SkillTree {

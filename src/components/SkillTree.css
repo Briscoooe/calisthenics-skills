@@ -1,5 +1,5 @@
 .SkillTree__container {
-  margin: 0 8px;
+  margin: 0 8px 48px;
   min-width: fit-content;
 }
 
@@ -14,4 +14,11 @@
 .SkillTree__title {
   min-height: 56px;
   min-width: 152px;
+  text-align: left;
+}
+
+@media (min-width: 900px) {
+  .SkillTree__title {
+    text-align: center;
+  }
 }

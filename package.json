@@ -27,6 +27,14 @@
     "test:watch": "react-scripts test --watch --coverage",
     "eject": "react-scripts eject"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "./src/App.tsx",
+      "./src/components/**/*.{ts,tsx}",
+      "./src/context/**/*.${ts,tsx}",
+      "./src/helpers/**/*.${ts,tsx}"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },

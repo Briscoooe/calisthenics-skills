@@ -21,7 +21,7 @@ describe("Tooltip component", () => {
   afterEach(cleanup);
 
   it("should render the placeholder text if none is provider", () => {
-    const { queryByText, debug } = renderComponent();
+    const { queryByText } = renderComponent();
 
     expect(queryByText("Title")).toBeTruthy();
     expect(queryByText("Some information")).toBeTruthy();

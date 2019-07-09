@@ -12,8 +12,6 @@ import {
   legsPushData,
   legsPullData
 } from "./data/skillTreeData";
-import Icon from "./components/ui/Icon";
-import { RingsIcon } from "./icons";
 import NavBar from "./components/ui/NavBar";
 
 function App() {
@@ -34,7 +32,6 @@ function App() {
         </li>
       </NavBar>
       <header className="App__header">
-        {/* <Icon src={RingsIcon} title="header map icon." containerWidth={200} /> */}
         <h1>Calisthenics Skill Tree</h1>
       </header>
       <section className="App__body">
